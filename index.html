@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>MHTCET 2026 Power Notes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scrollbar-width:thin;scrollbar-color:#333 transparent;-webkit-tap-highlight-color:transparent}
+body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#a3a3a3;overflow-x:hidden}
+body.lt{background:#f5f5f4;color:#57534e}
+.cin{position:fixed;inset:0;z-index:9999;background:#050505;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .8s,transform .8s}
+.cin.out{opacity:0;transform:scale(1.06);pointer-events:none}
+.cin-glow{position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.1),transparent 70%);top:45%;left:50%;transform:translate(-50%,-50%);animation:gPulse 3s ease infinite}
+@keyframes gPulse{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.3)}}
+.cin-ptc{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.cin-dot{position:absolute;width:2px;height:2px;border-radius:50%;animation:rise linear infinite;opacity:0}
+@keyframes rise{0%{opacity:0;transform:translateY(100vh) scale(0)}10%{opacity:.8}85%{opacity:.8}100%{opacity:0;transform:translateY(-10vh) scale(1)}}
+.cin-line{width:0;height:1px;background:linear-gradient(to right,transparent,#f59e0b,transparent);animation:lineGrow 1.2s ease .2s forwards}
+@keyframes lineGrow{to{width:80px}}
+.cin-lbl{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#737373;opacity:0;animation:fs .7s ease .5s forwards}
+.cin-name{font-size:clamp(26px,7vw,48px);font-weight:300;letter-spacing:-.02em;color:#fff;opacity:0;animation:fs .9s ease .9s forwards;text-align:center;padding:0 24px;line-height:1.25}
+.cin-name b{font-weight:700;background:linear-gradient(135deg,#f59e0b,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cin-tag{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(13px,2.8vw,17px);color:#737373;opacity:0;animation:fs .9s ease 1.7s forwards;text-align:center;padding:0 24px;margin-top:12px;line-height:1.7}
+.cin-tag .zap{color:#f59e0b;display:inline-block;animation:zP 2s ease infinite}
+.cin-tag .leaf{color:#ec4899;display:inline-block;animation:lF 3s ease infinite}
+@keyframes zP{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.2)}}
+@keyframes lF{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-3px) rotate(4deg)}70%{transform:translateY(2px) rotate(-3deg)}}
+.cin-foot{position:absolute;bottom:36px;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fs .6s ease 2.5s forwards;cursor:pointer}
+.cin-skip{font-size:10px;color:#525252;letter-spacing:.12em;text-transform:uppercase;background:none;border:none;padding:12px 20px;border-radius:8px;transition:color .3s}
+.cin-skip:hover{color:#f59e0b}
+.cin-bar{width:100px;height:2px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.cin-bar i{display:block;height:100%;width:0;background:linear-gradient(to right,#f59e0b,#ec4899);border-radius:99px;animation:barFill 4s ease 2.7s forwards}
+@keyframes barFill{to{width:100%}}
+@keyframes fs{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.card{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;transition:background .4s,border-color .4s}
+body.lt .card{background:#fff;border-color:rgba(0,0,0,.08)}
+table{width:100%;border-collapse:collapse}
+th{background:rgba(255,255,255,.03);color:#525252;font-size:10px;text-transform:uppercase;letter-spacing:.08em;padding:9px 12px;text-align:left;font-weight:600}
+td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px;color:#d4d4d4}
+body.lt th{background:rgba(0,0,0,.03);color:#a8a29e}
+body.lt td{border-color:rgba(0,0,0,.06);color:#44403c}
+tr:last-child td{border-bottom:none}
+:root{--c1:#f59e0b;--c1bg:rgba(245,158,11,.1);--c1bd:rgba(245,158,11,.2);--c2:#22c55e;--c2bg:rgba(34,197,94,.1);--c2bd:rgba(34,197,94,.2);--c3:#818cf8;--c3bg:rgba(129,140,248,.1);--c3bd:rgba(129,140,248,.2)}
+body.pk{--c1:#ec4899;--c1bg:rgba(236,72,153,.1);--c1bd:rgba(236,72,153,.2);--c2:#f43f5e;--c2bg:rgba(244,63,94,.1);--c2bd:rgba(244,63,94,.2);--c3:#d946ef;--c3bg:rgba(217,70,239,.1);--c3bd:rgba(217,70,239,.2)}
+.t1{color:var(--c1)}.t2{color:var(--c2)}.t3{color:var(--c3)}
+.tw{color:#fff}body.lt .tw{color:#1c1917}
+.td{color:#525252}body.lt .td{color:#a8a29e}
+.mn{background:var(--c1bg);border-left:3px solid var(--c1);border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:14px}
+.mn p{font-size:13px;font-style:italic;color:#e5e5e5}body.lt .mn p{color:#1c1917}
+.mn .s{font-size:11px;font-style:normal;color:#737373;margin-top:6px}body.lt .mn .s{color:#78716c}
+.sc{background:rgba(59,130,246,.06);border-left:3px solid #3b82f6;border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:14px;font-size:13px}
+.sc strong{color:#e5e5e5}body.lt .sc strong{color:#1c1917}body.lt .sc{color:#57534e}
+.pyq{display:inline-block;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:9px;letter-spacing:.04em;padding:3px 8px;border-radius:99px;font-weight:700;vertical-align:middle}
+.wt{display:inline-flex;align-items:center;gap:5px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);color:#f87171;font-size:11px;padding:5px 10px;border-radius:8px;font-weight:500}
+.tt{display:inline-flex;align-items:center;gap:5px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);color:#60a5fa;font-size:11px;padding:5px 10px;border-radius:8px;font-weight:500}
+.ct{display:inline-block;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:#525252;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:7px;font-weight:600}
+body.lt .ct{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.07)}
+.ew{border-left:3px solid #ef4444;background:rgba(239,68,68,.05);border-radius:0 10px 10px 0;padding:12px 14px}
+.ec{border-left:3px solid #22c55e;background:rgba(34,197,94,.05);border-radius:0 10px 10px 0;padding:12px 14px}
+.ew p,.ec p{font-size:13px;color:#d4d4d4}body.lt .ew p,body.lt .ec p{color:#44403c}
+.ew .l,.ec .l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.ew .l{color:#f87171}.ec .l{color:#4ade80}
+.dv{display:flex;align-items:center;gap:16px;margin:32px 0}
+.dv::before,.dv::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.08),transparent)}
+body.lt .dv::before,body.lt .dv::after{background:linear-gradient(to right,transparent,rgba(0,0,0,.08),transparent)}
+.dv span{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#525252;white-space:nowrap}
+body.lt .dv span{color:#a8a29e}
+.qb{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;font-size:12px;font-weight:600;color:#fff;border:none;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;flex-shrink:0}
+.qb::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.18),transparent);pointer-events:none}
+.qb:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.qb:active{transform:translateY(0)}
+.qb1{background:linear-gradient(135deg,var(--c1),#b45309)}
+.qb2{background:linear-gradient(135deg,var(--c2),#15803d)}
+.qb3{background:linear-gradient(135deg,var(--c3),#4338ca)}
+.tg{display:inline-flex;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+body.lt .tg{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.08)}
+.tg button{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;color:#525252;font-size:14px;transition:all .2s}
+body.lt .tg button{color:#a8a29e}
+.tg button.on{background:var(--c1);color:#fff}
+.tg button:hover:not(.on){background:rgba(255,255,255,.06)}
+body.lt .tg button:hover:not(.on){background:rgba(0,0,0,.06)}
+.mbg{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.mbg.show{display:flex}
+.mdl{background:#111;border:1px solid rgba(255,255,255,.08);border-radius:20px;width:100%;max-width:580px;max-height:88vh;overflow-y:auto;animation:mi .3s ease}
+body.lt .mdl{background:#fff;border-color:rgba(0,0,0,.08)}
+@keyframes mi{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.qo{display:flex;align-items:center;gap:10px;padding:12px 16px;border:2px solid rgba(255,255,255,.08);border-radius:12px;cursor:pointer;transition:all .15s;font-size:13px;color:#d4d4d4;user-select:none}
+body.lt .qo{border-color:rgba(0,0,0,.1);color:#44403c}
+.qo:hover{border-color:var(--c3bd);background:var(--c3bg)}
+.qo.ok{border-color:#22c55e!important;background:rgba(34,197,94,.12)!important;color:#4ade80!important}
+.qo.no{border-color:#ef4444!important;background:rgba(239,68,68,.1)!important;color:#f87171!important}
+.qo.lk{pointer-events:none;opacity:.6}
+.qo .ql{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(255,255,255,.05);color:#737373;flex-shrink:0}
+body.lt .qo .ql{background:rgba(0,0,0,.05);color:#a8a29e}
+.rb{height:10px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
+body.lt .rb{background:rgba(0,0,0,.06)}
+.b1{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 22px;border-radius:12px;font-size:13px;font-weight:600;color:#fff;border:none;cursor:pointer;background:var(--c1);transition:all .15s}
+.b1:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.b2{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 22px;border-radius:12px;font-size:13px;font-weight:500;color:#a3a3a3;border:1px solid rgba(255,255,255,.08);cursor:pointer;background:transparent;transition:all .15s}
+body.lt .b2{color:#57534e;border-color:rgba(0,0,0,.1)}
+.b2:hover{background:rgba(255,255,255,.04)}
+body.lt .b2:hover{background:rgba(0,0,0,.04)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.82);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);transition:background .4s,border-color .4s}
+body.lt .nav{background:rgba(245,245,244,.82);border-color:rgba(0,0,0,.06)}
+.pb{position:fixed;top:52px;left:0;right:0;height:3px;z-index:99;background:rgba(255,255,255,.04)}
+body.lt .pb{background:rgba(0,0,0,.04)}
+.pb div{height:100%;background:linear-gradient(to right,var(--c1),var(--c2),var(--c3));transition:width .2s}
+.bt{position:fixed;bottom:20px;right:20px;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;border:none;cursor:pointer;z-index:90;opacity:0;transform:translateY(12px);pointer-events:none;transition:all .25s;background:var(--c1)}
+.bt.v{opacity:1;transform:none;pointer-events:auto}
+.si{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.03)}
+body.lt .si{background:rgba(0,0,0,.03)}
+body.lt .tbl{border-color:rgba(0,0,0,.08)!important}
+body.lt .mhdr{border-color:rgba(0,0,0,.08)!important}
+body.lt .ftb{border-color:rgba(0,0,0,.08)!important}
+@media(max-width:640px){.card{padding:18px}.mdl{border-radius:16px;max-height:92vh}.cin-tag{padding:0 28px}}
+@media print{.np{display:none!important}.card{break-inside:avoid;background:#fff!important;color:#000!important;border:1px solid #ccc}}
+</style>
+</head>
+<body>
+
+<div class="cin" id="cin">
+  <div class="cin-glow"></div>
+  <div class="cin-ptc" id="ptc"></div>
+  <div class="cin-line"></div>
+  <p class="cin-lbl">Created By</p>
+  <h1 class="cin-name"><b>Manish Dhangar</b></h1>
+  <p class="cin-tag"><span class="zap">Hacker soul ⚡</span> but weak for true feelings <span class="leaf">🍁</span></p>
+  <div class="cin-foot" id="cinFoot">
+    <p class="cin-skip" id="skipBtn">Tap anywhere to continue</p>
+    <div class="cin-bar"><i></i></div>
+  </div>
+</div>
+
+<nav class="nav np" id="mainNav" style="opacity:0;transition:opacity .5s">
+<div style="max-width:56rem;margin:0 auto;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:10px">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center"><span class="iconify" style="color:#fff;font-size:14px" data-icon="lucide:atom"></span></div>
+    <span class="tw" style="font-size:13px;font-weight:600;display:none" id="lg">MHTCET 2026</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:6px">
+    <div class="tg"><button id="bD" onclick="setTh('dark')"><span class="iconify" data-icon="lucide:moon"></span></button><button id="bL" onclick="setTh('light')"><span class="iconify" data-icon="lucide:sun"></span></button></div>
+    <div class="tg"><button id="bN" onclick="setPk(false)"><span class="iconify" data-icon="lucide:palette"></span></button><button id="bP" onclick="setPk(true)" style="font-size:15px">🌸</button></div>
+  </div>
+</div>
+</nav>
+<div class="pb np"><div id="pf" style="width:0%"></div></div>
+
+<div style="max-width:48rem;margin:0 auto;padding:80px 16px 60px;opacity:0;transition:opacity .5s" id="mainContent">
+
+<header style="text-align:center;margin-bottom:48px">
+  <div style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;font-size:11px;color:#525252;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);margin-bottom:18px" class="hf np"><span class="iconify t1" style="font-size:12px" data-icon="lucide:zap"></span>PYQ-Driven · Mnemonics · 110 Quiz Questions</div>
+  <h1 class="tw" style="font-size:clamp(1.8rem,5vw,3rem);font-weight:300;letter-spacing:-.02em;line-height:1.15;margin-bottom:8px">Groups <span style="font-weight:600" class="t1">16</span>, <span style="font-weight:600" class="t2">17</span> & <span style="font-weight:600" class="t3">18</span></h1>
+  <p class="td" style="font-family:'Newsreader',serif;font-style:italic;font-size:16px">Oxygen Family · Halogens · Noble Gases</p>
+  <p class="td" style="font-size:11px;margin-top:16px">Created by Manish Dhangar · manish2stem@gmail.com</p>
+</header>
+
+<!-- GROUP 16 -->
+<section id="g16" style="margin-bottom:48px;scroll-margin-top:70px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:24px"><div style="width:38px;height:38px;border-radius:11px;background:var(--c1bg);display:flex;align-items:center;justify-content:center"><span class="t1" style="font-size:16px;font-weight:700">16</span></div><div><h2 class="tw" style="font-size:18px;font-weight:600">Oxygen Family</h2><p class="td" style="font-size:11px">ns2 np4 — O, S, Se, Te, Po</p></div><div style="margin-left:auto"><span class="pyq">PYQ x3</span></div></div>
+
+<div class="card" style="margin-bottom:16px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct">Topic 1</span><h3 class="tw" style="font-size:15px;font-weight:600;margin-top:8px">Group 16 Overview</h3></div><button type="button" class="qb qb1 np" onclick="openQ('t1')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="overflow-x:auto;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin-bottom:14px" class="tbl"><table><thead><tr><th>Property</th><th class="t1">Oxygen</th><th>Sulphur</th><th>Se / Te</th></tr></thead><tbody><tr><td class="tw" style="font-weight:500">Atomic radius</td><td class="t1" style="font-weight:600">Smallest</td><td>Larger</td><td>Increases down</td></tr><tr><td class="tw" style="font-weight:500">Electronegativity</td><td class="t1" style="font-weight:600">Highest (3.44)</td><td>2.58</td><td>Decreases down</td></tr><tr><td class="tw" style="font-weight:500">d-orbitals</td><td style="color:#f87171;font-weight:600">Absent</td><td style="color:#4ade80">Present</td><td style="color:#4ade80">Present</td></tr><tr><td class="tw" style="font-weight:500">Max OS</td><td class="t1" style="font-weight:600">+2 (OF2 only)</td><td>+6</td><td>+6</td></tr></tbody></table></div>
+<div class="mn"><p>"Oxygen ek chotu pan bossy mulga aahe — tyacha bag madhe extra pocket nahi"</p><p class="s">Small size + No d-orbitals = High EN + Mainly -2; +2 ONLY in OF2 = Max covalency 2</p></div>
+<div class="sc"><strong>Memory Trick:</strong> Small size + No d-orbital = Anomaly</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span class="wt"><span class="iconify" style="font-size:12px" data-icon="lucide:x-circle"></span>O shows +6 WRONG</span><span class="pyq">[2024, 2025]</span><span class="td" style="font-size:11px">No d-orbital</span></div></div>
+
+<div class="card" style="margin-bottom:16px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct">Topic 2</span><h3 class="tw" style="font-size:15px;font-weight:600;margin-top:8px">Hydrides — Acidity Trend</h3></div><button type="button" class="qb qb1 np" onclick="openQ('t2')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="overflow-x:auto;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin-bottom:14px" class="tbl"><table><thead><tr><th>Hydride</th><th>Bond Str.</th><th>Acidity</th><th>BP</th></tr></thead><tbody><tr><td class="tw" style="font-weight:500">H2O</td><td style="color:#4ade80">Highest</td><td style="color:#f87171">Lowest</td><td class="t1" style="font-weight:600">100 C</td></tr><tr><td class="tw" style="font-weight:500">H2S</td><td>Down</td><td>Up</td><td>-60 C</td></tr><tr><td class="tw" style="font-weight:500">H2Se</td><td>Down</td><td>Up</td><td>-41 C</td></tr><tr><td class="tw" style="font-weight:500">H2Te</td><td style="color:#f87171">Lowest</td><td style="color:#4ade80">Highest</td><td>-2 C</td></tr></tbody></table></div>
+<div class="mn"><p>"Varcha bridge strong, khali jata jata loose — hydrogen padu lagto"</p><p class="s">Weaker bond = easier H+ release = stronger acid</p></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px"><span class="tt"><span class="iconify" style="font-size:12px" data-icon="lucide:arrow-right"></span>Acidity up down group</span><span class="wt"><span class="iconify" style="font-size:12px" data-icon="lucide:x-circle"></span>Apply HF trend WRONG</span></div></div>
+
+<div class="card"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct">Topic 3</span><h3 class="tw" style="font-size:15px;font-weight:600;margin-top:8px">O3 vs SO2</h3></div><button type="button" class="qb qb1 np" onclick="openQ('t3')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px"><div style="border-radius:12px;padding:14px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.1)"><div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span style="font-size:16px">🔥</span><h4 class="tw" style="font-size:13px;font-weight:600">O3 (Ozone)</h4></div><p style="font-size:10px;color:#f87171;font-weight:700;text-transform:uppercase;margin-bottom:4px">Strong OXIDISING Agent</p><p class="td" style="font-size:11px">Decomposes to O2 + [O]. Bleaches dyes permanently.</p></div><div style="border-radius:12px;padding:14px;background:rgba(34,197,94,.04);border:1px solid rgba(34,197,94,.1)"><div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span style="font-size:16px">🧽</span><h4 class="tw" style="font-size:13px;font-weight:600">SO2</h4></div><p style="font-size:10px;color:#4ade80;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">REDUCING Agent</p><p class="td" style="font-size:11px">Oxidised to SO3/H2SO4. Bleaches temporarily.</p></div></div>
+<div class="mn"><p>"O3 dragon sagla jalaun takto — SO2 sponge sagla absorb karto"</p></div></div>
+</section>
+
+<div class="dv"><span>Group 17</span></div>
+
+<!-- GROUP 17 -->
+<section id="g17" style="margin-bottom:48px;scroll-margin-top:70px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:24px"><div style="width:38px;height:38px;border-radius:11px;background:var(--c2bg);display:flex;align-items:center;justify-content:center"><span class="t2" style="font-size:16px;font-weight:700">17</span></div><div><h2 class="tw" style="font-size:18px;font-weight:600">Halogens — MCQ Domination</h2><p class="td" style="font-size:11px">ns2 np5 — F, Cl, Br, I</p></div><div style="margin-left:auto"><span class="pyq">PYQ x8</span></div></div>
+
+<div class="card" style="margin-bottom:16px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct">Topic 4</span><h3 class="tw" style="font-size:15px;font-weight:600;margin-top:8px">Group 17 Overview</h3></div><button type="button" class="qb qb2 np" onclick="openQ('t4')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="overflow-x:auto;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin-bottom:14px" class="tbl"><table><thead><tr><th>Element</th><th>Colour</th><th>State</th><th>Ox. Power</th><th>EGE</th></tr></thead><tbody><tr><td class="tw" style="font-weight:500">F2</td><td>Pale yellow</td><td>Gas</td><td style="color:#4ade80;font-weight:600">Highest</td><td>-328 (2nd)</td></tr><tr><td class="tw" style="font-weight:500">Cl2</td><td>Greenish-yellow</td><td>Gas</td><td>2nd</td><td class="t2" style="font-weight:600">Most -ve</td></tr><tr><td class="tw" style="font-weight:500">Br2</td><td>Reddish-brown</td><td>Liquid</td><td>3rd</td><td>3rd</td></tr><tr><td class="tw" style="font-weight:500">I2</td><td>Violet</td><td>Solid</td><td style="color:#f87171">Lowest</td><td>Lowest</td></tr></tbody></table></div>
+<div class="mn"><p>"Pale yellow, greenish-yellow, red-brown, violet — rainbow order!"</p></div></div>
+
+<div class="card" style="margin-bottom:16px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct">Topic 5</span><div style="display:flex;align-items:center;gap:6px;margin-top:8px"><h3 class="tw" style="font-size:15px;font-weight:600">Oxidising Power</h3><span class="pyq">★</span></div></div><button type="button" class="qb qb2 np" onclick="openQ('t5')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="display:flex;align-items:center;gap:6px;margin-bottom:14px;overflow-x:auto"><div style="flex:1;min-width:50px;height:36px;border-radius:9px;background:linear-gradient(135deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700">F2</div><span class="iconify td" data-icon="lucide:chevron-right"></span><div style="flex:1;min-width:50px;height:36px;border-radius:9px;background:linear-gradient(135deg,#16a34a,#15803d);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700">Cl2</div><span class="iconify td" data-icon="lucide:chevron-right"></span><div style="flex:1;min-width:50px;height:36px;border-radius:9px;background:linear-gradient(135deg,#ca8a04,#a16207);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700">Br2</div><span class="iconify td" data-icon="lucide:chevron-right"></span><div style="flex:1;min-width:50px;height:36px;border-radius:9px;background:linear-gradient(135deg,#dc2626,#b91c1c);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700">I2</div></div>
+<div class="mn"><p>"Fluorine lightning speed, chlorine smart, bromine slow, iodine baslela"</p></div></div>
+
+<div class="card" style="margin-bottom:16px;border-color:var(--c2bd)"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct t2">Topic 6 — Most Tricky</span><div style="display:flex;align-items:center;gap:6px;margin-top:8px"><h3 class="tw" style="font-size:15px;font-weight:600">Electron Gain Enthalpy</h3><span style="font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;background:var(--c2bg);color:var(--c2)">ALWAYS ASKED</span></div></div><button type="button" class="qb qb2 np" onclick="openQ('t6')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="border-radius:12px;padding:18px;text-align:center;background:var(--c2bg);border:1px solid var(--c2bd);margin-bottom:14px"><p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--c2);margin-bottom:6px">Correct Order</p><p class="tw" style="font-size:24px;font-weight:700">Cl <span class="t2">&gt;</span> F <span class="td">&gt;</span> Br <span class="td">&gt;</span> I</p><p class="td" style="font-size:11px;margin-top:4px">Cl has highest EGE — NOT Fluorine!</p></div>
+<div class="mn"><p>"Fluorine cha room chota — newcomer la push milto, chlorine la perfect space aahe"</p></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px"><span class="wt"><span class="iconify" style="font-size:12px" data-icon="lucide:x-circle"></span>F highest EGE WRONG!</span><span class="pyq">[2023-2026]</span></div></div>
+
+<div class="card" style="margin-bottom:16px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct">Topic 7</span><h3 class="tw" style="font-size:15px;font-weight:600;margin-top:8px">Hydrogen Halides</h3></div><button type="button" class="qb qb2 np" onclick="openQ('t7')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="overflow-x:auto;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin-bottom:14px" class="tbl"><table><thead><tr><th>Property</th><th style="color:#f87171">HF</th><th>HCl</th><th>HBr</th><th style="color:#4ade80">HI</th></tr></thead><tbody style="text-align:center"><tr><td style="text-align:left"><span class="tw" style="font-weight:500">Bond strength</span></td><td style="color:#4ade80;font-weight:600">Highest</td><td>Down</td><td>Down</td><td style="color:#f87171">Lowest</td></tr><tr><td style="text-align:left"><span class="tw" style="font-weight:500">Acidity</span></td><td style="color:#f87171;font-weight:600">Weakest</td><td>Up</td><td>Up</td><td style="color:#4ade80;font-weight:600">Strongest</td></tr></tbody></table></div>
+<div class="mn"><p>"Bond var strong, khali weak — acid khali strong"</p></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px"><span class="wt"><span class="iconify" style="font-size:12px" data-icon="lucide:x-circle"></span>HF strongest WRONG</span><span class="pyq">[2025, 2026]</span></div></div>
+
+<div class="card"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct">Topic 8</span><h3 class="tw" style="font-size:15px;font-weight:600;margin-top:8px">Halogen Displacement</h3></div><button type="button" class="qb qb2 np" onclick="openQ('t8')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="display:grid;gap:8px;margin-bottom:14px"><div style="display:flex;align-items:start;gap:10px;border-radius:10px;padding:12px;background:rgba(34,197,94,.04);border:1px solid rgba(34,197,94,.12)"><span class="iconify" style="color:#4ade80;font-size:16px;margin-top:1px" data-icon="lucide:check-circle-2"></span><div><p class="tw" style="font-size:13px;font-weight:500">Cl2 + 2KBr = 2KCl + Br2</p><p class="td" style="font-size:11px">Orange-brown — <span style="color:#4ade80">Possible</span></p></div></div><div style="display:flex;align-items:start;gap:10px;border-radius:10px;padding:12px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12)"><span class="iconify" style="color:#f87171;font-size:16px;margin-top:1px" data-icon="lucide:x-circle"></span><div><p class="tw" style="font-size:13px;font-weight:500">I2 + 2KCl = No Reaction</p><p class="td" style="font-size:11px"><span style="color:#f87171">Impossible</span></p></div></div><div style="display:flex;align-items:start;gap:10px;border-radius:10px;padding:12px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12)"><span class="iconify" style="color:#f87171;font-size:16px;margin-top:1px" data-icon="lucide:x-circle"></span><div><p class="tw" style="font-size:13px;font-weight:500">Br2 + 2KF = No Reaction</p><p class="td" style="font-size:11px"><span style="color:#f87171">Impossible</span></p></div></div></div>
+<div class="sc"><strong>"Senior halogen mhanto — tu baher ja!"</strong> <span class="td">F2 &gt; Cl2 &gt; Br2 &gt; I2</span></div></div>
+</section>
+
+<div class="dv"><span>Group 18 + Interhalogens</span></div>
+
+<!-- GROUP 18 -->
+<section id="g18" style="margin-bottom:48px;scroll-margin-top:70px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:24px"><div style="width:38px;height:38px;border-radius:11px;background:var(--c3bg);display:flex;align-items:center;justify-content:center"><span class="t3" style="font-size:16px;font-weight:700">18</span></div><div><h2 class="tw" style="font-size:18px;font-weight:600">Noble Gases + Interhalogens</h2><p class="td" style="font-size:11px">ns2 np6 (He = 1s2)</p></div><div style="margin-left:auto"><span class="pyq">PYQ x5</span></div></div>
+
+<div class="card" style="margin-bottom:16px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct">Topic 9</span><h3 class="tw" style="font-size:15px;font-weight:600;margin-top:8px">Group 18 — Key Concepts</h3></div><button type="button" class="qb qb3 np" onclick="openQ('t9')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="overflow-x:auto;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin-bottom:14px" class="tbl"><table><thead><tr><th>Gas</th><th>At.No.</th><th>Discovery</th><th>Key Use</th></tr></thead><tbody><tr><td class="tw" style="font-weight:500">He</td><td>2</td><td class="t3">Sun spectrum</td><td>Balloons, cryogenics</td></tr><tr><td class="tw" style="font-weight:500">Ne</td><td>10</td><td>Ramsay and Travers</td><td>Neon signs</td></tr><tr><td class="tw" style="font-weight:500">Ar</td><td>18</td><td class="t3" style="font-weight:600">Most abundant</td><td>Welding</td></tr><tr><td class="tw" style="font-weight:500">Xe</td><td>54</td><td class="t3" style="font-weight:600">Forms compounds</td><td>Xe lamps</td></tr><tr><td class="tw" style="font-weight:500">Rn</td><td>86</td><td style="color:#f87171">Radioactive</td><td>Cancer treatment</td></tr></tbody></table></div>
+<div class="sc"><strong>"Full shell mule konashi pan react nahi"</strong></div></div>
+
+<div class="card" style="margin-bottom:16px;border-color:var(--c3bd)"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct t3">Topic 10 — PYQ Favourite</span><h3 class="tw" style="font-size:15px;font-weight:600;margin-top:8px">Xenon Shapes</h3></div><button type="button" class="qb qb3 np" onclick="openQ('t10')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="overflow-x:auto;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin-bottom:14px" class="tbl"><table><thead><tr><th>Compound</th><th>Hybrid.</th><th style="text-align:center">LP</th><th class="t3">Shape</th></tr></thead><tbody><tr><td class="tw" style="font-weight:500">XeF2</td><td>sp3d</td><td style="text-align:center" class="td">3</td><td class="t3" style="font-weight:600">Linear</td></tr><tr><td class="tw" style="font-weight:500">XeF4</td><td>sp3d2</td><td style="text-align:center" class="td">2</td><td class="t3" style="font-weight:600">Square Planar</td></tr><tr><td class="tw" style="font-weight:500">XeF6</td><td>sp3d3</td><td style="text-align:center" class="td">1</td><td class="t3" style="font-weight:600">Distorted Octahedral</td></tr><tr><td class="tw" style="font-weight:500">XeO3</td><td>sp3</td><td style="text-align:center" class="td">1</td><td class="t3" style="font-weight:600">Pyramidal</td></tr><tr><td class="tw" style="font-weight:500">XeOF4</td><td>sp3d2</td><td style="text-align:center" class="td">1</td><td class="t3" style="font-weight:600">Square Pyramidal</td></tr></tbody></table></div>
+<div class="mn"><p>"Xe bored zala ki kadhi kadhi react karto — but shape laavto LP var"</p></div>
+<div style="margin-top:10px"><span class="wt"><span class="iconify" style="font-size:12px" data-icon="lucide:x-circle"></span>XeF6 regular octahedral WRONG</span></div></div>
+
+<div class="card"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px"><div><span class="ct">Topic 11</span><h3 class="tw" style="font-size:15px;font-weight:600;margin-top:8px">Interhalogens</h3></div><button type="button" class="qb qb3 np" onclick="openQ('t11')"><span class="iconify" style="font-size:14px" data-icon="lucide:brain"></span>Quiz 10Q</button></div>
+<div style="overflow-x:auto;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin-bottom:14px" class="tbl"><table><thead><tr><th>Type</th><th>Examples</th><th class="t3">Shape</th></tr></thead><tbody><tr><td class="tw" style="font-weight:500">AX</td><td>ClF, BrCl</td><td class="td">Linear</td></tr><tr><td class="tw" style="font-weight:500">AX3</td><td>ClF3, BrF3</td><td class="t3" style="font-weight:600">T-shaped</td></tr><tr><td class="tw" style="font-weight:500">AX5</td><td>BrF5, IF5</td><td class="t3" style="font-weight:600">Square Pyramidal</td></tr><tr><td class="tw" style="font-weight:500">AX7</td><td>IF7</td><td class="t3" style="font-weight:600">Pentagonal Bipyramidal</td></tr></tbody></table></div>
+<div class="sc"><strong>"Big boss middle madhe basla"</strong> <span class="td">— Bigger = Centre. Only odd n.</span></div></div>
+</section>
+
+<div class="dv"><span style="color:#f87171">Exam Traps</span></div>
+
+<!-- EXAM TRAPS — HARDCODED, NO JS NEEDED -->
+<section style="margin-bottom:48px;scroll-margin-top:70px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:20px"><div style="width:38px;height:38px;border-radius:11px;background:rgba(239,68,68,.1);display:flex;align-items:center;justify-content:center"><span class="iconify" style="color:#f87171;font-size:18px" data-icon="lucide:alert-triangle"></span></div><div><h2 class="tw" style="font-size:18px;font-weight:600">Final Exam Traps</h2><p class="td" style="font-size:11px">From real PYQs — Read daily!</p></div></div>
+<div style="display:grid;gap:8px">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="ew"><p class="l">Wrong</p><p>Oxygen shows +6 OS</p></div>
+<div class="ec"><p class="l">Correct</p><p>O max OS = +2 (only in OF2)</p></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="ew"><p class="l">Wrong</p><p>F has highest EGE</p></div>
+<div class="ec"><p class="l">Correct</p><p>Cl highest EGE (Cl &gt; F &gt; Br &gt; I)</p></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="ew"><p class="l">Wrong</p><p>HF is strongest acid</p></div>
+<div class="ec"><p class="l">Correct</p><p>HI is strongest (HF &lt; HCl &lt; HBr &lt; HI)</p></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="ew"><p class="l">Wrong</p><p>Oxidising power: Cl &gt; F</p></div>
+<div class="ec"><p class="l">Correct</p><p>F2 strongest (F &gt; Cl &gt; Br &gt; I)</p></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="ew"><p class="l">Wrong</p><p>XeF6 is regular octahedral</p></div>
+<div class="ec"><p class="l">Correct</p><p>XeF6 is DISTORTED octahedral</p></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="ew"><p class="l">Wrong</p><p>Acidity up = Bond strength up</p></div>
+<div class="ec"><p class="l">Correct</p><p>OPPOSITE: weaker bond = stronger acid</p></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="ew"><p class="l">Wrong</p><p>I2 displaces Cl2</p></div>
+<div class="ec"><p class="l">Correct</p><p>IMPOSSIBLE — Cl is higher oxidiser</p></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="ew"><p class="l">Wrong</p><p>Noble gases never form compounds</p></div>
+<div class="ec"><p class="l">Correct</p><p>Xe forms XeF2, XeF4, XeF6, XeO3 etc.</p></div>
+</div>
+
+</div>
+</section>
+
+<div class="dv"><span style="color:#60a5fa">Last Day Revision</span></div>
+<section style="margin-bottom:48px">
+<div class="card" style="margin-bottom:16px"><div style="display:grid;gap:12px"><div style="display:flex;align-items:start;gap:10px"><span style="width:24px;height:24px;border-radius:7px;background:var(--c1bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--c1);flex-shrink:0">16</span><div style="font-size:13px"><p>Oxygen anomaly (-2, <strong class="tw">no d-orbital</strong>)</p><p>Acidity up down Group 16</p><p>O3 = <span style="color:#f87171">oxidising</span> · SO2 = <span style="color:#4ade80">reducing</span></p></div></div><div style="height:1px;background:rgba(255,255,255,.06)" class="tbl"></div><div style="display:flex;align-items:start;gap:10px"><span style="width:24px;height:24px;border-radius:7px;background:var(--c2bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--c2);flex-shrink:0">17</span><div style="font-size:13px"><p>F2 = strongest oxidant</p><p>EGE: <strong class="t2" style="font-weight:600">Cl &gt; F &gt; Br &gt; I</strong></p><p>HF = weakest acid, HI = strongest</p></div></div><div style="height:1px;background:rgba(255,255,255,.06)" class="tbl"></div><div style="display:flex;align-items:start;gap:10px"><span style="width:24px;height:24px;border-radius:7px;background:var(--c3bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--c3);flex-shrink:0">18</span><div style="font-size:13px"><p>Noble gases inert (full shell)</p><p>Xe: <span class="t3">XeF2 linear, XeF4 sq.planar, XeF6 dist.oct</span></p><p>Interhalogens: central = larger</p></div></div></div></div>
+<div class="card" style="border-color:var(--c1bd)"><div style="display:flex;align-items:center;gap:6px;margin-bottom:10px"><span class="iconify t1" style="font-size:16px" data-icon="lucide:sparkles"></span><h3 class="tw" style="font-size:14px;font-weight:600">Master Memory Story</h3></div><p style="font-family:'Newsreader',serif;font-style:italic;line-height:1.7;font-size:14px">"Chotu oxygen special aahe (small, no d-orbital), bonds khali weak hotat mhanun acidity vadhte, O3 strong oxidizer aahe, fluorine fastest, chlorine best electron gheto (highest EGE), noble gases react kart nahi, Xe kadhi kadhi react karto (linear, sq-planar, distorted-oct), ani big halogen hamesha center madhe asto."</p></div></section>
+
+<div class="dv np"><span class="t1">Scorecard</span></div>
+<section style="margin-bottom:48px;scroll-margin-top:70px" class="np"><div class="card"><div style="display:flex;align-items:center;gap:10px;margin-bottom:20px"><span class="iconify t1" style="font-size:22px" data-icon="lucide:trophy"></span><h2 class="tw" style="font-size:18px;font-weight:600">Your Quiz Performance</h2></div><div id="scoreBox"></div></div></section>
+
+<footer style="text-align:center;padding:32px 0;border-top:1px solid rgba(255,255,255,.06)" class="ftb"><p class="tw" style="font-size:18px;font-weight:600;margin-bottom:4px">YOU GOT THIS! 🎯</p><p class="td" style="font-family:'Newsreader',serif;font-style:italic;font-size:14px">MHTCET 2026 — ALL THE BEST!</p><p class="td" style="font-size:10px;margin-top:10px">Manish Dhangar · manish2stem@gmail.com</p></footer>
+</div>
+
+<button class="bt np" id="bttBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="iconify" style="font-size:16px" data-icon="lucide:arrow-up"></span></button>
+
+<div class="mbg np" id="qModal" onclick="if(event.target===this)closeQ()"><div class="mdl"><div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06)" class="mhdr"><div><h3 class="tw" style="font-size:15px;font-weight:600" id="qTi"></h3><p class="td" style="font-size:11px">10 Questions</p></div><button type="button" onclick="closeQ()" style="width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border:none;cursor:pointer"><span class="iconify td" style="font-size:14px" data-icon="lucide:x"></span></button></div><div id="qBo" style="padding:20px"></div></div></div>
+
+<!-- QUIZ DATA — each topic in its own script block for safety -->
+<script>var QD = {};</script>
+<script>QD.t1={n:"Group 16 Overview",c:"c1",q:[{q:"What is the maximum oxidation state shown by oxygen?",o:["+6","+4","+2","+8"],a:2,e:"Oxygen has no d-orbitals, cannot expand octet beyond 2 bonds. Max OS = +2 only in OF2."},{q:"Which element in Group 16 has the highest electronegativity?",o:["Sulphur","Selenium","Oxygen","Tellurium"],a:2,e:"Oxygen EN = 3.44, highest in Group 16 due to small size."},{q:"Oxygen shows maximum covalency of:",o:["4","6","2","8"],a:2,e:"No d-orbitals means max covalency = 2 (H2O, OF2)."},{q:"Why does oxygen NOT show +4 or +6 oxidation states?",o:["Low ionization energy","Absence of d-orbitals","High electron affinity","Small atomic size only"],a:1,e:"Without d-orbitals, oxygen cannot form more than 2 covalent bonds."},{q:"Which is the most abundant element in Group 16?",o:["Selenium","Oxygen","Sulphur","Tellurium"],a:1,e:"Oxygen is most abundant in Earth crust (~46% by mass)."},{q:"Oxygen differs from other Group 16 elements in all EXCEPT:",o:["State at room temp (gas)","Maximum OS of +6","Absence of d-orbitals","Paramagnetic nature of O2"],a:1,e:"Oxygen does NOT show +6. Others do due to d-orbitals."},{q:"The oxidation state of oxygen in OF2 is:",o:["+2","0","+1","-2"],a:0,e:"F is more EN than O. Each F gets -1, so O = +2."},{q:"Which property of oxygen is NOT an anomaly in Group 16?",o:["Gaseous state","Magnetic nature","Presence of d-orbitals","Diatomic molecule"],a:2,e:"Oxygen does NOT have d-orbitals - that is why it is anomalous."},{q:"Among Group 16, which has the smallest atomic radius?",o:["Sulphur","Oxygen","Polonium","Selenium"],a:1,e:"Oxygen has smallest atomic radius due to lowest principal quantum number."},{q:"Which Group 16 element is radioactive?",o:["Tellurium","Polonium","Selenium","Sulphur"],a:1,e:"Polonium (Po) is radioactive."}]};</script>
+<script>QD.t2={n:"Hydrides - Acidity Trend",c:"c1",q:[{q:"Correct order of acid strength for Group 16 hydrides:",o:["H2O > H2S > H2Se > H2Te","H2Te > H2Se > H2S > H2O","H2S > H2Se > H2Te > H2O","H2O > H2Te > H2Se > H2S"],a:1,e:"Acidity increases down group: H2O < H2S < H2Se < H2Te."},{q:"Which Group 16 hydride has the highest boiling point?",o:["H2S","H2Se","H2Te","H2O"],a:3,e:"H2O has highest BP (100 C) due to extensive hydrogen bonding."},{q:"Bond dissociation energy is highest for:",o:["H2Te","H2Se","H2S","H2O"],a:3,e:"H-O bond is strongest due to small size and good overlap."},{q:"H2S is a gas at room temperature because:",o:["Strong H-bonding","Weak intermolecular forces only","Ionic bonding","Covalent network"],a:1,e:"H2S lacks significant H-bonding so only weak dipole-dipole forces act."},{q:"Which hydride is used in qualitative analysis?",o:["H2O","H2Te","H2Se","H2S"],a:3,e:"H2S precipitates metal sulfides from group II and III cations."},{q:"Acidity of H2Te is greater than H2O because:",o:["H2Te has stronger bonds","H-Te bond is weaker releasing H+ easily","H2Te has more H-bonding","H2Te is lighter"],a:1,e:"H-Te bond is weakest making H+ release easiest."},{q:"H2O has unexpectedly high boiling point due to:",o:["Van der Waals forces","Hydrogen bonding","Ionic bonding","Metallic bonding"],a:1,e:"Extensive hydrogen bonding gives H2O anomalously high BP."},{q:"Which statement about Group 16 hydrides is WRONG?",o:["All are reducing agents","All are gases at RT except H2O","Bond strength decreases down group","Acidity decreases down group"],a:3,e:"Acidity INCREASES down the group, not decreases."},{q:"H2Se smells like:",o:["Rotten eggs like H2S","Extremely foul more than H2S","No smell","Sweet smell"],a:1,e:"H2Se has even more offensive smell than H2S."},{q:"Bond angle in H2S is approximately:",o:["104.5 deg","107 deg","92 deg","109.5 deg"],a:2,e:"H2S has bond angle ~92 deg due to less p-character."}]};</script>
+<script>QD.t3={n:"O3 vs SO2",c:"c1",q:[{q:"Ozone (O3) acts as a:",o:["Reducing agent","Oxidising agent","Both equally","Neither"],a:1,e:"O3 is powerful oxidising agent, decomposes to give nascent oxygen [O]."},{q:"SO2 acts as a:",o:["Strong oxidising agent","Reducing agent","Neither","Only bleaching agent"],a:1,e:"SO2 can be oxidised to SO3/SO4(2-), acting as reducing agent."},{q:"O3 bleaches by:",o:["Reduction","Oxidation","Adsorption","Substitution"],a:1,e:"O3 bleaches by oxidation releasing [O]."},{q:"SO2 bleaches by:",o:["Oxidation","Reduction","Hydrolysis","Decomposition"],a:1,e:"SO2 bleaches by reduction adding to double bonds."},{q:"Bleaching by SO2 is:",o:["Permanent","Temporary","Neither","Depends on temperature"],a:1,e:"SO2 bleaching is temporary, reduced product re-oxidized by air."},{q:"O3 layer is present in:",o:["Troposphere","Stratosphere","Mesosphere","Thermosphere"],a:1,e:"Ozone layer in stratosphere (~15-35 km) protects from UV."},{q:"Which is used for water purification?",o:["SO2","O3","Both equally","Neither"],a:1,e:"O3 kills bacteria in drinking water."},{q:"SO2 turns acidified K2Cr2O7 solution:",o:["Orange to green","Green to orange","No change","Orange to blue"],a:0,e:"SO2 reduces orange Cr(VI) to green Cr(III)."},{q:"O3 reacts with KI to give:",o:["KCl + I2","KIO3 + I2","KI + O2 only","No reaction"],a:0,e:"O3 + 2KI + H2O gives 2KOH + I2 + O2."},{q:"Which gas is released when conc. H2SO4 reacts with Cu?",o:["O3","SO2","SO3","H2S"],a:1,e:"Cu + 2H2SO4 gives CuSO4 + SO2 + 2H2O."}]};</script>
+<script>QD.t4={n:"Group 17 Overview",c:"c2",q:[{q:"Colour of fluorine (F2) gas is:",o:["Greenish-yellow","Pale yellow","Reddish-brown","Violet"],a:1,e:"F2 is pale yellow. Cl2 greenish-yellow, Br2 reddish-brown, I2 violet."},{q:"Which halogen is a liquid at room temperature?",o:["F2","Cl2","Br2","I2"],a:2,e:"Bromine (Br2) is only liquid halogen at room temperature."},{q:"Physical state of halogens down the group:",o:["Gas-Gas-Liquid-Solid","Gas-Liquid-Liquid-Solid","Liquid-Gas-Liquid-Solid","All gases"],a:0,e:"F2 and Cl2 gases, Br2 liquid, I2 solid."},{q:"Which halogen has the highest electronegativity?",o:["Cl","Br","F","I"],a:2,e:"Fluorine has highest EN (4.0) of all elements."},{q:"Atomic size order in halogens:",o:["F < Cl < Br < I","Cl < F < Br < I","I < Br < Cl < F","F < Br < Cl < I"],a:0,e:"Atomic size increases down group: F < Cl < Br < I."},{q:"Which halogen is most reactive?",o:["Cl2","Br2","I2","F2"],a:3,e:"F2 most reactive due to lowest BDE and highest EN."},{q:"I2 sublimes on heating because:",o:["Covalent bonding","Strong intermolecular forces","Weak van der Waals forces","Ionic nature"],a:2,e:"I2 has weak van der Waals forces easily overcome."},{q:"Which halogen is used in drinking water purification?",o:["F2","Br2","I2","Cl2"],a:3,e:"Cl2 kills bacteria in water."},{q:"Fluorine reacts with water to give:",o:["HF only","HF + O2","HF + O3","HF + H2O2"],a:1,e:"2F2 + 2H2O gives 4HF + O2."},{q:"Bond dissociation energy of halogens:",o:["F2 > Cl2 > Br2 > I2","Cl2 > F2 > Br2 > I2","Cl2 > Br2 > F2 > I2","I2 > Br2 > Cl2 > F2"],a:1,e:"Cl2 has highest BDE. F2 lower due to 2p interelectronic repulsion."}]};</script>
+<script>QD.t5={n:"Oxidising Power",c:"c2",q:[{q:"Correct order of oxidising power:",o:["Cl2 > F2 > Br2 > I2","F2 > Cl2 > Br2 > I2","F2 > Br2 > Cl2 > I2","I2 > Br2 > Cl2 > F2"],a:1,e:"F2 strongest: F2 > Cl2 > Br2 > I2."},{q:"Why is F2 the strongest oxidising agent?",o:["Low EN","Highest electrode potential (+2.87V)","Large size","Low reactivity"],a:1,e:"F2/F- has highest standard electrode potential."},{q:"I2 is the weakest oxidising agent because:",o:["Large size, low electrode potential","Small size","High EN","Strong bond"],a:0,e:"I2 has large size and lowest electrode potential."},{q:"Cl2 can displace Br- and I- because:",o:["Cl is lighter","Cl2 is stronger oxidising agent","Cl2 is reducing agent","Cl has more electrons"],a:1,e:"Higher oxidising power allows displacement."},{q:"Which reaction is NOT possible?",o:["Cl2 + 2KBr gives 2KCl + Br2","Br2 + 2KI gives 2KBr + I2","I2 + 2KCl gives 2KI + Cl2","F2 + 2KCl gives 2KF + Cl2"],a:2,e:"I2 cannot displace Cl- from KCl."},{q:"Standard electrode potential of F2/F- is:",o:["+1.36 V","+2.87 V","+1.07 V","+0.54 V"],a:1,e:"F2/F- has highest EP of +2.87 V."},{q:"Oxidising power decreases down group because:",o:["Size increases, EN decreases","Bond energy increases","Electron affinity increases","Ionization energy increases"],a:0,e:"Larger size and decreasing EN reduce tendency to gain electrons."},{q:"Br2 can oxidize:",o:["Cl- to Cl2","F- to F2","I- to I2","All of these"],a:2,e:"Br2 can only oxidize I- (weaker)."},{q:"Which halogen does NOT react with water?",o:["F2","Cl2","Br2","None - all react"],a:3,e:"All halogens react with water."},{q:"Cl2 in cold dilute NaOH gives:",o:["NaCl + NaClO + H2O","NaCl + NaClO3 + H2O","NaCl only","No reaction"],a:0,e:"Cl2 + 2NaOH(cold dil) gives NaCl + NaClO + H2O."}]};</script>
+<script>QD.t6={n:"Electron Gain Enthalpy",c:"c2",q:[{q:"Correct order of EGE (most negative first):",o:["F > Cl > Br > I","Cl > F > Br > I","Cl > Br > F > I","Br > Cl > F > I"],a:1,e:"Cl has most negative EGE. F less negative due to small size repulsion."},{q:"Why does Cl have more negative EGE than F?",o:["Cl is smaller","F has compact 2p causing e- repulsion","Cl has lower EN","Cl has more protons"],a:1,e:"Compact 2p of F causes significant electron-electron repulsion."},{q:"EGE becomes less negative down Group 17 because:",o:["Size increases, e- feels less attraction","Size decreases","EN increases","Nuclear charge decreases"],a:0,e:"Increasing size means incoming electron is farther from nucleus."},{q:"Which has most negative electron gain enthalpy?",o:["F","Cl","Br","O"],a:1,e:"Cl has most negative EGE (~-349 kJ/mol)."},{q:"EGE of F is less negative than Cl because:",o:["F has d-orbitals","Small size causes high e- repulsion in 2p","F is less electronegative","F has more shells"],a:1,e:"Compact 2p subshell causes significant repulsion."},{q:"Electron gain enthalpy of noble gases is:",o:["Highly negative","Positive","Zero","Undefined"],a:1,e:"Noble gases have positive EGE, energy absorbed to add electron."},{q:"Which statement about EGE is CORRECT?",o:["EGE of F is most negative","EGE becomes more negative down Group 17","EGE of Cl > EGE of F in magnitude","EGE and EA unrelated"],a:2,e:"Cl has more negative EGE than F."},{q:"If EGE of Cl = -349 kJ/mol, approximate EGE of F:",o:["-380","-328","-400","-300"],a:1,e:"F EGE ~ -328 kJ/mol, less negative than Cl."},{q:"EGE trend in Group 17 is exception because:",o:["Normally EGE more negative down group","F anomaly due to small size","Both A and B","Neither"],a:2,e:"Normally should be more negative down, but F breaks this."},{q:"EGE of O is less negative than S because:",o:["O has d-orbitals","O smaller causing more e- repulsion","O less electronegative","S has fewer electrons"],a:1,e:"Small 2p subshell causes significant repulsion."}]};</script>
+<script>QD.t7={n:"Hydrogen Halides",c:"c2",q:[{q:"Correct order of acid strength:",o:["HF > HCl > HBr > HI","HI > HBr > HCl > HF","HCl > HF > HBr > HI","HBr > HI > HCl > HF"],a:1,e:"Acid strength: HF << HCl < HBr < HI."},{q:"Which HX has strongest H-X bond?",o:["HI","HBr","HCl","HF"],a:3,e:"H-F bond strongest due to small size and high EN difference."},{q:"HF is a weak acid because:",o:["Strong H-F bond, H+ not easily released","HF is covalent only","HF does not dissolve","F is less electronegative"],a:0,e:"Strong H-F bond (565 kJ/mol) makes H+ release difficult."},{q:"HI is strongest acid because:",o:["H-I bond is weakest (297 kJ/mol)","I is most electronegative","HI has H-bonding","I is smallest"],a:0,e:"H-I bond weakest = easiest to break = most H+."},{q:"HF shows extensive hydrogen bonding because:",o:["F is highly electronegative and small","F is large","HF is a gas","F has d-orbitals"],a:0,e:"F high EN and small size create strong H-bonds."},{q:"Boiling point order of HX:",o:["HI > HBr > HCl > HF","HF > HI > HBr > HCl","HCl > HBr > HI > HF","HF > HCl > HBr > HI"],a:1,e:"HF highest BP due to H-bonding. Others: HI > HBr > HCl."},{q:"Which HX is used in etching glass?",o:["HCl","HBr","HI","HF"],a:3,e:"HF reacts with SiO2: SiO2 + 4HF gives SiF4 + 2H2O."},{q:"HCl gas prepared in lab by:",o:["NaCl + conc H2SO4","NaCl + HNO3","NaCl + dil H3PO4","KCl + dil H2SO4"],a:0,e:"NaCl + conc H2SO4 gives NaHSO4 + HCl gas."},{q:"Which HX NOT used in qualitative analysis?",o:["HCl","HF","HBr","HI"],a:1,e:"HF dissolves glass and forms insoluble CaF2."},{q:"Thermal stability of HX:",o:["HI > HBr > HCl > HF","HF > HCl > HBr > HI","HCl > HF > HBr > HI","All equal"],a:1,e:"Stronger bond = more thermally stable. HF > HCl > HBr > HI."}]};</script>
+<script>QD.t8={n:"Halogen Displacement",c:"c2",q:[{q:"Cl2 + 2KBr gives:",o:["2KCl + Br2","2KBr + Cl2","KBr + KCl","No reaction"],a:0,e:"Cl2 displaces Br2 from KBr."},{q:"Br2 + 2KF gives:",o:["2KBr + F2","2KF + Br2","No reaction","KBr + F2"],a:2,e:"Br2 cannot displace F- from KF."},{q:"I2 + 2NaCl gives:",o:["2NaI + Cl2","NaCl + I2","No reaction","NaI + NaCl"],a:2,e:"I2 cannot displace Cl- from NaCl."},{q:"F2 + 2NaCl gives:",o:["2NaF + Cl2","No reaction","NaF + NaCl","2NaCl + F2"],a:0,e:"F2 displaces Cl2 from NaCl easily."},{q:"Which produces orange-brown colour?",o:["Cl2 + 2KBr","I2 + 2KBr","Br2 + 2KI","Cl2 + 2KF"],a:0,e:"Cl2 displaces Br2 (orange-brown) from KBr."},{q:"Which produces violet colour in organic layer?",o:["Br2 + 2KI","Cl2 + 2KBr","F2 + 2KI","Cl2 + 2KCl"],a:0,e:"Br2 displaces I2 (violet) from KI."},{q:"X2 reacts with KI but NOT KBr. X2 is:",o:["Cl2","F2","Br2","I2"],a:2,e:"Br2 can displace I2 but not Br- from KBr."},{q:"Displacement follows order:",o:["F2 > Cl2 > Br2 > I2","I2 > Br2 > Cl2 > F2","Cl2 > F2 > I2 > Br2","Br2 > I2 > Cl2 > F2"],a:0,e:"Higher oxidising power displaces lower."},{q:"Cl2 added to solution with both Br- and I-:",o:["Both Br2 and I2 formed","Only Br2 forms","Only I2 forms","No reaction"],a:0,e:"Cl2 can displace both."},{q:"Correct displacement rule:",o:["Lower displaces higher","Higher displaces lower","No displacement","All displace equally"],a:1,e:"Higher oxidising power displaces lower."}]};</script>
+<script>QD.t9={n:"Group 18 - Key Concepts",c:"c3",q:[{q:"Electronic config of noble gases (except He):",o:["ns2 np6","ns2 np5","ns2 np4","ns1"],a:0,e:"Complete octet: ns2 np6. He = 1s2."},{q:"Which noble gas discovered from Sun spectrum?",o:["Ne","Ar","He","Xe"],a:2,e:"Helium first detected in Sun spectrum (1868)."},{q:"Most abundant noble gas in atmosphere:",o:["He","Ne","Ar","Xe"],a:2,e:"Argon ~0.93% of atmosphere."},{q:"Which forms maximum compounds?",o:["Kr","Xe","Rn","Ar"],a:1,e:"Xe forms most compounds."},{q:"Which noble gas is radioactive?",o:["Xe","Kr","Rn","Ar"],a:2,e:"Radon (Rn) is radioactive."},{q:"Neon is used in:",o:["Welding","Neon sign boards","Balloons","Cryogenics"],a:1,e:"Neon emits reddish-orange light."},{q:"He used in balloons instead of H2 because:",o:["He cheaper","He non-flammable and lighter than air","He heavier","H2 unavailable"],a:1,e:"He is non-flammable unlike H2."},{q:"Lowest boiling point noble gas:",o:["Ne","He","Ar","Kr"],a:1,e:"He has lowest BP (4.2 K)."},{q:"Noble gases inert because:",o:["No electrons","Complete valence shell","Very small","High IE only"],a:1,e:"Complete valence shell makes them inert."},{q:"Used as cryogenic fluid:",o:["Ar","Ne","Xe","He"],a:3,e:"Liquid He used for superconducting magnets."}]};</script>
+<script>QD.t10={n:"Xenon Shapes",c:"c3",q:[{q:"Shape of XeF2:",o:["Linear","Bent","T-shaped","Trigonal planar"],a:0,e:"XeF2 sp3d, 3 LP = linear (AX2E3)."},{q:"Shape of XeF4:",o:["Tetrahedral","Square planar","See-saw","Trigonal bipyramidal"],a:1,e:"XeF4 sp3d2, 2 LP = square planar (AX4E2)."},{q:"Shape of XeF6:",o:["Regular octahedral","Distorted octahedral","Pentagonal planar","Trigonal prismatic"],a:1,e:"XeF6 sp3d3, 1 LP = distorted octahedral."},{q:"Hybridization of Xe in XeF4:",o:["sp3d","sp3d2","sp3d3","sp3"],a:1,e:"4 BP + 2 LP = 6 regions = sp3d2."},{q:"Lone pairs on Xe in XeF2:",o:["1","2","3","0"],a:2,e:"8 valence e-, 2 in bonds, 6 = 3 lone pairs."},{q:"Shape of XeO3:",o:["Trigonal planar","Pyramidal","T-shaped","Linear"],a:1,e:"XeO3 sp3, 1 LP = pyramidal."},{q:"Shape of XeOF4:",o:["Square pyramidal","Trigonal bipyramidal","Octahedral","See-saw"],a:0,e:"XeOF4 sp3d2, 1 LP = square pyramidal (AX5E)."},{q:"Max lone pairs on Xe in which compound?",o:["XeF6","XeF4","XeF2","XeO3"],a:2,e:"XeF2 has 3 lone pairs (maximum)."},{q:"XeF6 NOT regular octahedral because:",o:["1 LP causes distortion","Xe too small","F atoms repel","Wrong hybridization"],a:0,e:"1 lone pair causes asymmetric charge distribution."},{q:"Total electron pairs around Xe in XeF4:",o:["4","5","6","8"],a:2,e:"4 BP + 2 LP = 6 total pairs."}]};</script>
+<script>QD.t11={n:"Interhalogens",c:"c3",q:[{q:"Shape of ClF3:",o:["Trigonal planar","T-shaped","Linear","See-saw"],a:1,e:"ClF3 sp3d, 2 LP = T-shaped (AX3E2)."},{q:"Shape of IF7:",o:["Octahedral","Pentagonal bipyramidal","Trigonal bipyramidal","Square antiprismatic"],a:1,e:"IF7 sp3d3, 0 LP = pentagonal bipyramidal (AX7)."},{q:"Shape of BrF5:",o:["Square pyramidal","Trigonal bipyramidal","Octahedral","See-saw"],a:0,e:"BrF5 sp3d2, 1 LP = square pyramidal (AX5E)."},{q:"Central atom in interhalogens is always:",o:["Smaller halogen","Larger halogen","Either","More electronegative"],a:1,e:"Larger (less EN) halogen is always central."},{q:"Which interhalogen type does NOT exist?",o:["AX","AX2","AX3","AX5"],a:1,e:"Only AX, AX3, AX5, AX7 exist (odd atoms)."},{q:"IF5 hybridization:",o:["sp3d","sp3d2","sp3d3","sp3"],a:1,e:"5 BP + 1 LP = 6 regions = sp3d2."},{q:"Lone pairs in BrF3:",o:["0","1","2","3"],a:2,e:"7 valence e-, 3 in bonds, 4 = 2 LP."},{q:"Fluorinating agent among interhalogens:",o:["BrCl","IF5","ClF3","IBr"],a:2,e:"ClF3 is powerful fluorinating agent."},{q:"Interhalogens more reactive than pure halogens because:",o:["X-X bond weaker than X-X","Ionic","More electrons","Smaller"],a:0,e:"X-X bond weaker due to size/EN mismatch."},{q:"Hybridization of Cl in ClF3:",o:["sp3","sp3d","sp3d2","sp2"],a:1,e:"3 BP + 2 LP = 5 regions = sp3d."}]};</script>
+
+<!-- QUIZ ENGINE -->
+<script>
+var qz={id:null,idx:0,sc:0,lk:false};
+var scores={};
+try{scores=JSON.parse(localStorage.getItem("mhtcet_sc")||"{}");}catch(e){scores={};}
+
+function openQ(id){
+  if(!QD[id]){alert("Quiz not loaded: "+id);return;}
+  qz={id:id,idx:0,sc:0,lk:false};
+  document.getElementById("qTi").textContent=QD[id].n;
+  document.getElementById("qModal").classList.add("show");
+  renderQ();
+}
+function closeQ(){document.getElementById("qModal").classList.remove("show");}
+
+function renderQ(){
+  var d=QD[qz.id],qq=d.q[qz.idx],b=document.getElementById("qBo");
+  qz.lk=false;
+  var h='<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span class="td" style="font-size:11px;font-weight:500">Question '+(qz.idx+1)+' of 10</span><span class="t1" style="font-size:11px;font-weight:700">'+qz.sc+'/'+qz.idx+'</span></div><div class="rb"><div style="height:100%;border-radius:99px;width:'+(qz.idx*10)+'%;background:var(--c1);transition:width .3s"></div></div></div>';
+  h+='<p class="tw" style="font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.5">'+qq.q+'</p><div style="display:grid;gap:8px" id="oBox">';
+  var L=["A","B","C","D"];
+  for(var i=0;i<qq.o.length;i++){h+='<div class="qo" onclick="pickA('+i+')"><span class="ql">'+L[i]+'</span><span>'+qq.o[i]+'</span></div>';}
+  h+='</div><div id="exBox" style="display:none;margin-top:14px;border-radius:10px;padding:12px 14px;background:rgba(59,130,246,.06);border-left:3px solid #3b82f6"><p style="font-size:10px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Explanation</p><p style="font-size:12px" id="exTxt"></p></div>';
+  h+='<button type="button" id="nxB" style="display:none;margin-top:14px;width:100%" class="b1" onclick="nxtQ()">Next &rarr;</button>';
+  b.innerHTML=h;
+}
+
+function pickA(i){
+  if(qz.lk)return;qz.lk=true;
+  var d=QD[qz.id],qq=d.q[qz.idx],ok=(i===qq.a);
+  if(ok)qz.sc++;
+  var opts=document.querySelectorAll("#oBox .qo");
+  for(var j=0;j<opts.length;j++){opts[j].classList.add("lk");if(j===qq.a)opts[j].classList.add("ok");if(j===i&&!ok)opts[j].classList.add("no");}
+  document.getElementById("exTxt").textContent=qq.e;
+  document.getElementById("exBox").style.display="block";
+  var nb=document.getElementById("nxB");nb.style.display="flex";nb.textContent=(qz.idx===9)?"See Results":"Next";
+}
+
+function nxtQ(){if(qz.idx===9){showRes();return;}qz.idx++;renderQ();}
+
+function showRes(){
+  var s=qz.sc,pct=s*10;
+  var em=pct>=80?"&#127942;":pct>=60?"&#128077;":pct>=40?"&#128218;":"&#128170;";
+  var mg=pct>=80?"Excellent!":pct>=60?"Good job!":pct>=40?"Keep practicing!":"Do not give up!";
+  var bc=pct>=60?"#22c55e":pct>=40?"#f59e0b":"#ef4444";
+  scores[qz.id]={s:s,d:new Date().toLocaleDateString()};
+  try{localStorage.setItem("mhtcet_sc",JSON.stringify(scores));}catch(e){}
+  renderSC();
+  document.getElementById("qBo").innerHTML='<div style="text-align:center;padding:20px 0"><p style="font-size:48px;margin-bottom:12px">'+em+'</p><p class="tw" style="font-size:28px;font-weight:700;margin-bottom:4px">'+s+'/10</p><p class="t1" style="font-size:16px;font-weight:600;margin-bottom:4px">'+pct+'%</p><p class="td" style="font-size:13px;margin-bottom:20px">'+mg+'</p><div class="rb" style="margin-bottom:20px"><div style="height:100%;border-radius:99px;width:'+pct+'%;background:'+bc+'"></div></div><div style="display:flex;gap:10px;justify-content:center"><button type="button" class="b2" onclick="closeQ();setTimeout(function(){openQ(\''+qz.id+'\')},200)">Retry</button><button type="button" class="b1" onclick="closeQ()">Done</button></div></div>';
+}
+
+function renderSC(){
+  var el=document.getElementById("scoreBox"),keys=Object.keys(QD),done=[];
+  for(var i=0;i<keys.length;i++){if(scores[keys[i]])done.push(keys[i]);}
+  if(!done.length){el.innerHTML='<div style="text-align:center;padding:30px 0"><span class="iconify td" style="font-size:36px" data-icon="lucide:bar-chart-3"></span><p class="td" style="font-size:13px;margin-top:10px">Complete quizzes to see scores here</p></div>';return;}
+  var totalS=0;for(var j=0;j<done.length;j++){totalS+=scores[done[j]].s;}
+  var totalT=done.length*10,pct=Math.round(totalS/totalT*100);
+  var bc=pct>=60?"#22c55e":pct>=40?"#f59e0b":"#ef4444";
+  var h='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center;margin-bottom:16px"><div><p class="t1" style="font-size:26px;font-weight:700">'+totalS+'</p><p class="td" style="font-size:11px">Correct</p></div><div><p class="t2" style="font-size:26px;font-weight:700">'+totalT+'</p><p class="td" style="font-size:11px">Attempted</p></div><div><p class="t3" style="font-size:26px;font-weight:700">'+pct+'%</p><p class="td" style="font-size:11px">Overall</p></div></div><div class="rb" style="margin-bottom:16px"><div style="height:100%;border-radius:99px;width:'+pct+'%;background:'+bc+'"></div></div><div style="display:grid;gap:6px">';
+  for(var k=0;k<keys.length;k++){var key=keys[k],info=QD[key],sv=scores[key];
+    if(sv){var sp=sv.s*10,sc2=sp>=60?"#22c55e":sp>=40?"#f59e0b":"#ef4444";h+='<div class="si"><div style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:var(--'+info.c+')"></span><span class="tw" style="font-size:12px;font-weight:500">'+info.n+'</span></div><div style="display:flex;align-items:center;gap:8px"><span class="td" style="font-size:10px">'+sv.d+'</span><span style="font-size:12px;font-weight:700;color:'+sc2+'">'+sv.s+'/10</span></div></div>';}
+    else{h+='<div class="si"><div style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#525252"></span><span class="td" style="font-size:12px">'+info.n+'</span></div><button type="button" onclick="closeQ();setTimeout(function(){openQ(\''+key+'\')},200)" style="font-size:11px;font-weight:600;color:var(--c1);background:none;border:none;cursor:pointer">Start &rarr;</button></div>';}}
+  h+='</div>';el.innerHTML=h;
+}
+renderSC();
+</script>
+
+<!-- UI SCRIPTS -->
+<script>
+(function(){var c=document.getElementById("ptc");for(var i=0;i<25;i++){var d=document.createElement("div");d.className="cin-dot";d.style.left=Math.random()*100+"%";d.style.background=Math.random()>.5?"#f59e0b":"#ec4899";d.style.animationDuration=(4+Math.random()*6)+"s";d.style.animationDelay=(Math.random()*5)+"s";c.appendChild(d);}})();
+
+(function(){var gone=false;function kill(){if(gone)return;gone=true;document.getElementById("cin").classList.add("out");document.getElementById("mainNav").style.opacity="1";document.getElementById("mainContent").style.opacity="1";setTimeout(function(){document.getElementById("cin").style.display="none";},800);}document.getElementById("cin").addEventListener("click",function(){kill();});document.getElementById("cin").addEventListener("touchend",function(){kill();},{passive:true});setTimeout(kill,6800);})();
+
+function setTh(t){if(t==="light")document.body.classList.add("lt");else document.body.classList.remove("lt");document.getElementById("bD").className=t==="dark"?"on":"";document.getElementById("bL").className=t==="light"?"on":"";localStorage.setItem("theme",t);}
+function setPk(p){if(p)document.body.classList.add("pk");else document.body.classList.remove("pk");document.getElementById("bN").className=p===false?"on":"";document.getElementById("bP").className=p===true?"on":"";localStorage.setItem("pink",p?"1":"0");}
+(function(){setTh(localStorage.getItem("theme")||"dark");setPk(localStorage.getItem("pink")==="1");})();
+
+window.addEventListener("scroll",function(){var h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById("pf").style.width=(h>0?(window.scrollY/h*100):0)+"%";var btn=document.getElementById("bttBtn");if(window.scrollY>400)btn.classList.add("v");else btn.classList.remove("v");});
+
+(function(){var lg=document.getElementById("lg");function ck(){lg.style.display=window.innerWidth>=640?"block":"none";}ck();window.addEventListener("resize",ck);})();
+</script>
+
+</body>
+</html>
