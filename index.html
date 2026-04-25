@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>MHTCET 2026 Power Notes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scrollbar-width:thin;scrollbar-color:#222 transparent;-webkit-tap-highlight-color:transparent}
+:root{--c1:#f59e0b;--c1bg:rgba(245,158,11,.05);--c1bd:rgba(245,158,11,.12);--c2:#22c55e;--c2bg:rgba(34,197,94,.05);--c2bd:rgba(34,197,94,.1);--c3:#818cf8;--c3bg:rgba(129,140,248,.05);--c3bd:rgba(129,140,248,.1)}
+body.pk{--c1:#ec4899;--c1bg:rgba(236,72,153,.05);--c1bd:rgba(236,72,153,.12);--c2:#f43f5e;--c2bg:rgba(244,63,94,.05);--c2bd:rgba(244,63,94,.1);--c3:#d946ef;--c3bg:rgba(217,70,239,.05);--c3bd:rgba(217,70,239,.1)}
+body{font-family:'Inter',sans-serif;background:#09090b;color:#a1a1aa;overflow-x:hidden;line-height:1.7;transition:background .3s,color .3s}
+body.lt{background:#fafaf9;color:#57534e}
+.cin{position:fixed;inset:0;z-index:9999;background:#050505;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+.cin.out{opacity:0;transform:scale(1.04);pointer-events:none}
+.cin-glow{position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.06),transparent 70%);top:45%;left:50%;transform:translate(-50%,-50%);animation:gp 3s ease infinite}
+@keyframes gp{0%,100%{opacity:.3;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.3)}}
+.cin-ptc{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.cin-dot{position:absolute;width:2px;height:2px;border-radius:50%;animation:rise linear infinite;opacity:0}
+@keyframes rise{0%{opacity:0;transform:translateY(100vh) scale(0)}10%{opacity:.5}85%{opacity:.5}100%{opacity:0;transform:translateY(-10vh) scale(1)}}
+.cin-line{width:0;height:1px;background:linear-gradient(to right,transparent,#f59e0b,transparent);animation:ln 1.2s ease .2s forwards}
+@keyframes ln{to{width:60px}}
+.cin-lbl{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#3f3f46;opacity:0;animation:fi .7s ease .5s forwards}
+.cin-name{font-size:clamp(22px,6vw,40px);font-weight:300;letter-spacing:-.02em;color:#fff;opacity:0;animation:fi .9s ease .9s forwards;text-align:center;padding:0 24px;line-height:1.2}
+.cin-name b{font-weight:700;background:linear-gradient(135deg,#f59e0b,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cin-tag{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(12px,2.5vw,15px);color:#3f3f46;opacity:0;animation:fi .9s ease 1.7s forwards;text-align:center;padding:0 28px;margin-top:12px}
+.cin-tag .zap{color:#f59e0b;display:inline-block;animation:zp 2s ease infinite}
+.cin-tag .leaf{color:#ec4899;display:inline-block;animation:lf 3s ease infinite}
+@keyframes zp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.15)}}
+@keyframes lf{0%,100%{transform:translateY(0)}30%{transform:translateY(-2px)}70%{transform:translateY(1px)}}
+.cin-foot{position:absolute;bottom:32px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fi .6s ease 2.5s forwards;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.cin-skip{font-size:10px;color:#27272a;letter-spacing:.12em;text-transform:uppercase;background:none;border:none;padding:12px 20px}
+.cin-bar{width:80px;height:2px;background:rgba(255,255,255,.04);border-radius:99px;overflow:hidden}
+.cin-bar i{display:block;height:100%;width:0;background:linear-gradient(to right,#f59e0b,#ec4899);border-radius:99px;animation:bf 3.5s ease 2.7s forwards}
+@keyframes bf{to{width:100%}}
+@keyframes fi{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,.82);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.04);opacity:0;transition:opacity .5s cubic-bezier(.4,0,.2,1),background .3s,border-color .3s}
+.nav.vis{opacity:1}
+body.lt .nav{background:rgba(250,250,249,.82);backdrop-filter:blur(20px);border-bottom-color:rgba(0,0,0,.06)}
+.pbar{position:fixed;top:50px;left:0;right:0;height:2px;z-index:99;background:rgba(255,255,255,.02);transition:background .3s}
+body.lt .pbar{background:rgba(0,0,0,.02)}
+.pbar div{height:100%;background:linear-gradient(to right,var(--c1),var(--c2),var(--c3));transition:width .15s}
+.t1{color:var(--c1);transition:color .3s}.t2{color:var(--c2);transition:color .3s}.t3{color:var(--c3);transition:color .3s}
+.tw{color:#fafafa;transition:color .3s}body.lt .tw{color:#0c0a09}
+.td{color:#71717a;transition:color .3s}body.lt .td{color:#a8a29e}
+.ts{color:#d4d4d8;transition:color .3s}body.lt .ts{color:#44403c}
+.card{background:rgba(24,24,27,.6);border:1px solid rgba(255,255,255,.04);border-radius:16px;padding:24px;transition:background .3s,border-color .3s,box-shadow .3s,transform .22s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(20px)}
+body.lt .card{background:#fff;border-color:rgba(0,0,0,.06);box-shadow:0 1px 3px 0 rgba(0,0,0,.04)}
+.card:hover{transform:translateY(-4px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+body.lt .card:hover{box-shadow:0 4px 16px rgba(0,0,0,.04)}
+table{width:100%;border-collapse:collapse}
+th{background:rgba(255,255,255,.02);color:#52525b;font-size:10px;text-transform:uppercase;letter-spacing:.08em;padding:10px 12px;text-align:left;font-weight:600;transition:background .3s,color .3s}
+td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.04);font-size:12.5px;color:#d4d4d8;transition:border-color .3s,color .3s}
+body.lt th{background:rgba(0,0,0,.02);color:#a8a29e}
+body.lt td{border-color:rgba(0,0,0,.04);color:#44403c}
+tr:last-child td{border-bottom:none}
+.tw2{overflow-x:auto;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin-bottom:12px;transition:border-color .3s}
+body.lt .tw2{border-color:rgba(0,0,0,.06)}
+.mn{background:var(--c1bg);border-left:3px solid var(--c1);border-radius:0 12px 12px 0;padding:12px 16px;margin-bottom:12px;transition:background .3s,border-color .3s}
+.mn p{font-size:12.5px;font-style:italic;color:#d4d4d8;transition:color .3s}body.lt .mn p{color:#1c1917}
+.mn .s{font-size:11px;font-style:normal;color:#71717a;margin-top:4px;transition:color .3s}body.lt .mn .s{color:#78716c}
+.sn{background:rgba(59,130,246,.04);border-left:3px solid #3b82f6;border-radius:0 12px 12px 0;padding:12px 16px;margin-bottom:10px;font-size:12.5px;color:#a1a1aa;transition:color .3s,background .3s}
+.sn strong{color:#d4d4d8;transition:color .3s}body.lt .sn strong{color:#1c1917}body.lt .sn{color:#57534e}
+.pyq{display:inline-block;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:9px;letter-spacing:.04em;padding:2px 7px;border-radius:99px;font-weight:700;vertical-align:middle}
+.wt{display:inline-flex;align-items:center;gap:4px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.08);color:#f87171;font-size:11px;padding:3px 9px;border-radius:8px;font-weight:500;transition:background .3s,border-color .3s,color .3s}
+body.lt .wt{background:rgba(239,68,68,.02);border-color:rgba(239,68,68,.06)}
+.tt{display:inline-flex;align-items:center;gap:4px;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.08);color:#60a5fa;font-size:11px;padding:3px 9px;border-radius:8px;font-weight:500;transition:background .3s,border-color .3s,color .3s}
+body.lt .tt{background:rgba(59,130,246,.02);border-color:rgba(59,130,246,.06)}
+.ct{display:inline-block;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);color:#52525b;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:2px 9px;border-radius:6px;font-weight:600;transition:background .3s,border-color .3s,color .3s}
+body.lt .ct{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.05)}
+.ew{border-left:3px solid #ef4444;background:rgba(239,68,68,.03);border-radius:0 9px 9px 0;padding:10px 12px;transition:background .3s}
+body.lt .ew{background:rgba(239,68,68,.02)}
+.ec{border-left:3px solid #22c55e;background:rgba(34,197,94,.03);border-radius:0 9px 9px 0;padding:10px 12px;transition:background .3s}
+body.lt .ec{background:rgba(34,197,94,.02)}
+.ew p,.ec p{font-size:12.5px;color:#d4d4d8;transition:color .3s}body.lt .ew p,body.lt .ec p{color:#44403c}
+.ew .l,.ec .l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1px}
+.ew .l{color:#f87171}.ec .l{color:#4ade80}
+.dv{display:flex;align-items:center;gap:14px;margin:32px 0}
+.dv::before,.dv::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.04),transparent);transition:background .3s}
+body.lt .dv::before,body.lt .dv::after{background:linear-gradient(to right,transparent,rgba(0,0,0,.04),transparent)}
+.dv span{font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#3f3f46;white-space:nowrap;transition:color .3s}
+body.lt .dv span{color:#a8a29e}
+.qb{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:10px;font-size:11.5px;font-weight:600;color:#fff;border:none;cursor:pointer;transition:all .22s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;flex-shrink:0;background:var(--c1);letter-spacing:.01em;-webkit-tap-highlight-color:transparent}
+.qb:hover{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.qb:active{transform:scale(.96)}
+.qb1{background:linear-gradient(135deg,var(--c1),#b45309)}
+.qb2{background:linear-gradient(135deg,var(--c2),#15803d)}
+.qb3{background:linear-gradient(135deg,var(--c3),#4338ca)}
+.qb-fire{background:linear-gradient(135deg,#ef4444,#b91c1c)}
+.tg{display:inline-flex;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:8px;overflow:hidden;transition:background .3s,border-color .3s}
+body.lt .tg{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.06)}
+.tg button{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;color:#52525b;font-size:12px;transition:all .15s cubic-bezier(.4,0,.2,1)}
+body.lt .tg button{color:#a8a29e}
+.tg button.on{background:var(--c1)!important;color:#fff!important}
+.tg button:hover:not(.on){background:rgba(255,255,255,.06)}
+body.lt .tg button:hover:not(.on){background:rgba(0,0,0,.05)}
+.mbg{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(12px);z-index:200;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s cubic-bezier(.4,0,.2,1)}
+.mbg.show{opacity:1;pointer-events:auto}
+.mdl{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:20px;width:100%;max-width:560px;max-height:88vh;overflow-y:auto;transform:translateY(40px);opacity:0;transition:all .35s cubic-bezier(.4,0,.2,1)}
+.mbg.show .mdl{transform:translateY(0);opacity:1}
+body.lt .mdl{background:#fff;border-color:rgba(0,0,0,.06)}
+.qo{display:flex;align-items:center;gap:10px;padding:12px 16px;border:1.5px solid rgba(255,255,255,.06);border-radius:12px;cursor:pointer;transition:all .15s cubic-bezier(.4,0,.2,1);font-size:12.5px;color:#d4d4d8;user-select:none;-webkit-tap-highlight-color:transparent}
+body.lt .qo{border-color:rgba(0,0,0,.08);color:#44403c}
+.qo:hover{border-color:var(--c3bd);background:var(--c3bg)}
+.qo.ok{border-color:#22c55e!important;background:rgba(34,197,94,.1)!important;color:#4ade80!important}
+.qo.no{border-color:#ef4444!important;background:rgba(239,68,68,.08)!important;color:#f87171!important}
+.qo.lk{pointer-events:none;opacity:.5}
+.qo.ok.lk{opacity:1}.qo.no.lk{opacity:1}
+.qo .ql{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;background:rgba(255,255,255,.04);color:#52525b;flex-shrink:0;transition:background .3s,color .3s}
+body.lt .qo .ql{background:rgba(0,0,0,.04);color:#a8a29e}
+.b1{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:11px 22px;border-radius:12px;font-size:12.5px;font-weight:600;color:#fff;border:none;cursor:pointer;background:var(--c1);transition:all .15s cubic-bezier(.4,0,.2,1);-webkit-tap-highlight-color:transparent}
+.b1:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.b1:active{transform:scale(.96)}
+.b2{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:11px 22px;border-radius:12px;font-size:12.5px;font-weight:500;color:#a1a1aa;border:1px solid rgba(255,255,255,.06);cursor:pointer;background:transparent;transition:all .15s cubic-bezier(.4,0,.2,1)}
+body.lt .b2{color:#57534e;border-color:rgba(0,0,0,.08)}
+.b2:hover{background:rgba(255,255,255,.03)}
+body.lt .b2:hover{background:rgba(0,0,0,.03)}
+.bt{position:fixed;bottom:16px;right:16px;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;border:none;cursor:pointer;z-index:90;opacity:0;transform:translateY(10px);pointer-events:none;transition:all .25s cubic-bezier(.4,0,.2,1);background:var(--c1)}
+.bt.v{opacity:1;transform:none;pointer-events:auto}
+.si{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.02);transition:background .3s}
+body.lt .si{background:rgba(0,0,0,.02)}
+.mnc{display:flex;align-items:start;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.03);transition:border-color .3s}
+body.lt .mnc{border-color:rgba(0,0,0,.04)}
+.mnc:last-child{border-bottom:none}
+.mnc-d{width:6px;height:6px;border-radius:50%;background:var(--c1);margin-top:7px;flex-shrink:0;transition:background .3s}
+.mnc p{font-size:12.5px;font-style:italic;color:#d4d4d8;transition:color .3s}body.lt .mnc p{color:#1c1917}
+.mnc .en{font-size:11px;font-style:normal;color:#52525b;margin-top:1px;transition:color .3s}body.lt .mnc .en{color:#a8a29e}
+.qrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px}
+.detail-only{display:block}
+.qr-only{display:none}
+body.qr-mode .detail-only{display:none!important}
+body.qr-mode .qr-only{display:block!important}
+.qr-btn{font-size:10px;font-weight:600;letter-spacing:.05em;padding:5px 12px;border-radius:7px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#71717a;cursor:pointer;transition:all .15s cubic-bezier(.4,0,.2,1);white-space:nowrap;-webkit-tap-highlight-color:transparent}
+body.lt .qr-btn{border-color:rgba(0,0,0,.08);background:rgba(0,0,0,.03);color:#78716c}
+.qr-btn.on{background:var(--c1bg)!important;border-color:var(--c1bd)!important;color:var(--c1)!important}
+.mhdr{border-bottom:1px solid rgba(255,255,255,.05);transition:border-color .3s}
+body.lt .mhdr{border-color:rgba(0,0,0,.05)}
+.ftb{border-top:1px solid rgba(255,255,255,.04);transition:border-color .3s}
+body.lt .ftb{border-color:rgba(0,0,0,.04)}
+.toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:rgba(24,24,27,.92);color:#e4e4e7;padding:10px 20px;border-radius:12px;font-size:12.5px;z-index:999;border:1px solid rgba(255,255,255,.08);animation:fi .3s ease;pointer-events:none;white-space:nowrap;transition:background .3s,color .3s}
+body.lt .toast{background:rgba(255,255,255,.98);color:#1c1917;border-color:rgba(0,0,0,.08)}
+.score-circle{width:90px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;position:relative}
+.score-circle svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.score-circle circle{fill:none;stroke-width:3}
+@media(max-width:640px){.card{padding:16px}.mdl{border-radius:14px;max-height:92vh}.hide-sm{display:none!important}}
+@media print{.no-print{display:none!important}.card{break-inside:avoid;background:#fff!important;color:#000!important;border:1px solid #ccc}}
+</style>
+</head>
+<body>
+
+<div class="cin" id="cin">
+<div class="cin-glow"></div>
+<div class="cin-ptc" id="ptc"></div>
+<div class="cin-line"></div>
+<p class="cin-lbl">Created By</p>
+<h1 class="cin-name"><b>Manish Dhangar</b></h1>
+<p class="cin-tag"><span class="zap">Hacker soul</span> but weak for true feelings <span class="leaf">🍁</span></p>
+<div class="cin-foot" id="cinFoot"><p class="cin-skip">Tap to continue</p><div class="cin-bar"><i></i></div></div>
+</div>
+
+<nav class="nav no-print" id="mainNav">
+<div style="max-width:52rem;margin:0 auto;padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+<div style="display:flex;align-items:center;gap:7px">
+<div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center"><span class="iconify" style="color:#fff;font-size:12px" data-icon="lucide:atom"></span></div>
+<span class="tw hide-sm" style="font-size:12px;font-weight:600" id="lg">MHTCET 2026</span>
+</div>
+<div style="display:flex;align-items:center;gap:5px">
+<button type="button" class="qr-btn" id="qrToggle">⚡ QR</button>
+<div class="tg"><button type="button" id="bD"><span class="iconify" data-icon="lucide:moon"></span></button><button type="button" id="bL"><span class="iconify" data-icon="lucide:sun"></span></button></div>
+<div class="tg"><button type="button" id="bN"><span class="iconify" data-icon="lucide:palette"></span></button><button type="button" id="bP" style="font-size:13px">🌸</button></div>
+</div>
+</div>
+</nav>
+<div class="pbar no-print"><div id="pf" style="width:0%"></div></div>
+
+<div style="max-width:46rem;margin:0 auto;padding:74px 14px 50px;opacity:0;transition:opacity .5s" id="mainContent">
+
+<header style="text-align:center;margin-bottom:40px">
+<h1 class="tw" style="font-size:clamp(1.6rem,4.5vw,2.6rem);font-weight:300;letter-spacing:-.02em;line-height:1.2;margin-bottom:6px">Groups <span style="font-weight:600" class="t1">16</span>, <span style="font-weight:600" class="t2">17</span> & <span style="font-weight:600" class="t3">18</span></h1>
+<p class="td" style="font-family:'Newsreader',serif;font-style:italic;font-size:15px">Oxygen Family · Halogens · Noble Gases</p>
+<p class="td" style="font-size:10px;margin-top:12px">Manish Dhangar · manish2stem@gmail.com</p>
+</header>
+
+<section id="g16" style="margin-bottom:40px;scroll-margin-top:66px">
+<div style="display:flex;align-items:center;gap:9px;margin-bottom:18px">
+<div style="width:34px;height:34px;border-radius:9px;background:var(--c1bg);display:flex;align-items:center;justify-content:center"><span class="t1" style="font-size:14px;font-weight:700">16</span></div>
+<div><h2 class="tw" style="font-size:16px;font-weight:600">Oxygen Family</h2><p class="td" style="font-size:10px">ns2 np4 — O, S, Se, Te, Po</p></div>
+<div style="margin-left:auto"><span class="pyq">PYQ x3</span></div>
+</div>
+
+<div class="card detail-only" style="margin-bottom:12px">
+<span class="ct">Topic 1</span>
+<h3 class="tw" style="font-size:14px;font-weight:600;margin:6px 0 12px">Group 16 Overview</h3>
+<div class="tw2"><table><thead><tr><th>Property</th><th class="t1">Oxygen</th><th>Sulphur</th><th>Se / Te</th></tr></thead><tbody><tr><td class="ts" style="font-weight:500">Atomic radius</td><td class="t1" style="font-weight:600">Smallest</td><td>Larger</td><td>Increases down</td></tr><tr><td class="ts" style="font-weight:500">Electronegativity</td><td class="t1" style="font-weight:600">3.44 (highest)</td><td>2.58</td><td>Decreases down</td></tr><tr><td class="ts" style="font-weight:500">d-orbitals</td><td style="color:#f87171;font-weight:600">Absent</td><td style="color:#4ade80">Present</td><td style="color:#4ade80">Present</td></tr><tr><td class="ts" style="font-weight:500">Oxidation states</td><td class="t1" style="font-weight:600">-2, -1, -1/2, +2</td><td>-2 to +6</td><td>-2 to +6</td></tr><tr><td class="ts" style="font-weight:500">Max covalency</td><td class="t1" style="font-weight:600">2</td><td>6</td><td>6</td></tr></tbody></table></div>
+<div class="mn"><p>"Oxygen chota don — +2 varch thambto, +4/+6 chi power nahi"</p><p class="s">No d-orbitals = cannot expand octet. Max OS = +2 (only OF2). Common: -2, -1 (peroxides), -1/2 (superoxides).</p></div>
+<div class="sn"><strong>NCERT Key:</strong> Oxygen cannot show +4 or +6 oxidation states due to absence of d-orbitals. This is its most asked anomaly.</div>
+<div class="qrow"><span class="wt"><span class="iconify" style="font-size:11px" data-icon="lucide:x-circle"></span>O +6 WRONG</span><span class="pyq">[2024-26]</span></div>
+</div>
+
+<div class="card detail-only" style="margin-bottom:12px">
+<span class="ct">Topic 2</span>
+<h3 class="tw" style="font-size:14px;font-weight:600;margin:6px 0 12px">Hydrides — Acidity Trend</h3>
+<div class="tw2"><table><thead><tr><th>Hydride</th><th>Bond Str.</th><th>Acidity</th><th>BP</th></tr></thead><tbody><tr><td class="ts" style="font-weight:500">H2O</td><td style="color:#4ade80">Highest</td><td style="color:#f87171">Lowest</td><td class="t1" style="font-weight:600">100°C</td></tr><tr><td class="ts" style="font-weight:500">H2S</td><td>Down</td><td>Up</td><td>-60°C</td></tr><tr><td class="ts" style="font-weight:500">H2Se</td><td>Down</td><td>Up</td><td>-41°C</td></tr><tr><td class="ts" style="font-weight:500">H2Te</td><td style="color:#f87171">Lowest</td><td style="color:#4ade80">Highest</td><td>-2°C</td></tr></tbody></table></div>
+<div class="mn"><p>"Bond kamakam, acid tyakatyak — H2O chikta mhanun BP highest"</p><p class="s">Weaker E-H bond = easier H+ release = stronger acid. H2O has H-bonding = anomalously high BP.</p></div>
+<div class="qrow"><span class="tt"><span class="iconify" style="font-size:11px" data-icon="lucide:arrow-right"></span>Acidity increases down group</span><span class="wt"><span class="iconify" style="font-size:11px" data-icon="lucide:x-circle"></span>Apply HF trend WRONG</span></div>
+</div>
+
+<div class="card detail-only" style="margin-bottom:12px">
+<span class="ct">Topic 3</span>
+<h3 class="tw" style="font-size:14px;font-weight:600;margin:6px 0 12px">O3 vs SO2</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+<div style="border-radius:12px;padding:12px;background:rgba(239,68,68,.03);border:1px solid rgba(239,68,68,.08)"><p style="font-size:9px;color:#f87171;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">O3 — Oxidising</p><p class="td" style="font-size:11px">Decomposes: O3 → O2 + [O]. Bleaches permanently.</p></div>
+<div style="border-radius:12px;padding:12px;background:rgba(34,197,94,.03);border:1px solid rgba(34,197,94,.08)"><p style="font-size:9px;color:#4ade80;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">SO2 — Reducing</p><p class="td" style="font-size:11px">Oxidised to SO3/H2SO4. Bleaches temporarily.</p></div>
+</div>
+<div class="mn"><p>"O3 aag laavto, SO2 pani sambhalt"</p></div>
+<div class="qrow"><span class="pyq">[2024]</span><span class="td" style="font-size:10px">O3 = oxidising</span><span class="pyq">[2026]</span><span class="td" style="font-size:10px">SO2 = reducing</span></div>
+</div>
+
+<div class="card qr-only" style="margin-bottom:12px">
+<h3 class="tw" style="font-size:14px;font-weight:600;margin-bottom:10px">Group 16 — Quick Facts</h3>
+<div style="font-size:12.5px;display:grid;gap:6px">
+<p class="ts"><span class="t1" style="font-weight:600">O anomaly:</span> No d-orbitals. OS: -2, -1, -1/2, +2 only. Max covalency = 2.</p>
+<p class="ts"><span class="t2" style="font-weight:600">Hydrides:</span> Acidity up down group. H2O highest BP (H-bonding).</p>
+<p class="ts"><span class="t3" style="font-weight:600">O3</span> = strong oxidiser. <span style="color:#4ade80">SO2</span> = reducing agent.</p>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+<button type="button" class="qb qb1" data-quiz="t1"><span class="iconify" style="font-size:13px" data-icon="lucide:brain"></span>Topic 1 Quiz</button>
+<button type="button" class="qb qb1" data-quiz="t2"><span class="iconify" style="font-size:13px" data-icon="lucide:brain"></span>Topic 2 Quiz</button>
+<button type="button" class="qb qb1" data-quiz="t3"><span class="iconify" style="font-size:13px" data-icon="lucide:brain"></span>Topic 3 Quiz</button>
+</div>
+</section>
+
+<div class="dv"><span>Group 17</span></div>
+
+<section id="g17" style="margin-bottom:40px;scroll-margin-top:66px">
+<div style="display:flex;align-items:center;gap:9px;margin-bottom:18px">
+<div style="width:34px;height:34px;border-radius:9px;background:var(--c2bg);display:flex;align-items:center;justify-content:center"><span class="t2" style="font-size:14px;font-weight:700">17</span></div>
+<div><h2 class="tw" style="font-size:16px;font-weight:600">Halogens</h2><p class="td" style="font-size:10px">ns2 np5 — F, Cl, Br, I</p></div>
+<div style="margin-left:auto"><span class="pyq">PYQ x8</span></div>
+</div>
+
+<div class="card detail-only" style="margin-bottom:12px">
+<span class="ct">Topic 4</span>
+<h3 class="tw" style="font-size:14px;font-weight:600;margin:6px 0 12px">Group 17 Overview</h3>
+<div class="tw2"><table><thead><tr><th>Element</th><th>Colour</th><th>State</th><th>Ox. Power</th><th>EGE rank</th></tr></thead><tbody><tr><td class="ts" style="font-weight:500">F2</td><td>Pale yellow</td><td>Gas</td><td style="color:#4ade80;font-weight:600">Highest</td><td>2nd</td></tr><tr><td class="ts" style="font-weight:500">Cl2</td><td>Greenish-yellow</td><td>Gas</td><td>2nd</td><td class="t2" style="font-weight:600">1st (most -ve)</td></tr><tr><td class="ts" style="font-weight:500">Br2</td><td style="color:#f87171">Reddish-brown</td><td>Liquid</td><td>3rd</td><td>3rd</td></tr><tr><td class="ts" style="font-weight:500">I2</td><td>Violet</td><td>Solid</td><td style="color:#f87171">Lowest</td><td>Lowest</td></tr></tbody></table></div>
+<div class="mn"><p>"Pale yellow, green-yellow, red-brown, violet — rainbow order!"</p></div>
+</div>
+
+<div class="card detail-only" style="margin-bottom:12px">
+<span class="ct">Topic 5</span>
+<div style="display:flex;align-items:center;gap:6px;margin-bottom:12px"><span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;background:var(--c2bg);color:var(--c2)">ALWAYS ASKED</span></div>
+<h3 class="tw" style="font-size:14px;font-weight:600;margin:0 0 12px">Electron Gain Enthalpy</h3>
+<div style="border-radius:10px;padding:16px;text-align:center;background:var(--c2bg);border:1px solid var(--c2bd);margin-bottom:12px">
+<p style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--c2);margin-bottom:4px">Correct Order</p>
+<p class="tw" style="font-size:22px;font-weight:700">Cl <span class="t2">&gt;</span> F <span class="td">&gt;</span> Br <span class="td">&gt;</span> I</p>
+<p class="td" style="font-size:11px;margin-top:3px">Cl has highest EGE — NOT Fluorine!</p>
+</div>
+<div class="mn"><p>"Fluorine cha room chota — e- la push milto, chlorine la perfect space"</p><p class="s">F's compact 2p orbital causes interelectronic repulsion for incoming electron.</p></div>
+<div class="qrow"><span class="wt"><span class="iconify" style="font-size:11px" data-icon="lucide:x-circle"></span>F highest EGE WRONG!</span><span class="pyq">[2023-26]</span></div>
+</div>
+
+<div class="card detail-only" style="margin-bottom:12px">
+<span class="ct">Topic 7</span>
+<h3 class="tw" style="font-size:14px;font-weight:600;margin:6px 0 12px">Hydrogen Halides</h3>
+<div class="tw2"><table><thead><tr><th>Property</th><th style="color:#f87171">HF</th><th>HCl</th><th>HBr</th><th style="color:#4ade80">HI</th></tr></thead><tbody><tr><td class="ts" style="font-weight:500">Bond strength</td><td style="color:#4ade80;font-weight:600">Highest</td><td>Medium</td><td>Lower</td><td style="color:#f87171;font-weight:600">Lowest</td></tr><tr><td class="ts" style="font-weight:500">Acidity</td><td style="color:#f87171;font-weight:600">Weakest</td><td>Medium</td><td>Strong</td><td style="color:#4ade80;font-weight:600">Strongest</td></tr><tr><td class="ts" style="font-weight:500">BP</td><td class="t2" style="font-weight:600">Highest</td><td>Low</td><td>Medium</td><td>Higher</td></tr></tbody></table></div>
+<div class="mn"><p>"Bond strong = acid weak. HF premmadh strong, pan acid madhe weak"</p></div>
+<div class="qrow"><span class="wt"><span class="iconify" style="font-size:11px" data-icon="lucide:x-circle"></span>HF strongest acid WRONG</span><span class="pyq">[2025-26]</span></div>
+</div>
+
+<div class="card detail-only" style="margin-bottom:12px">
+<span class="ct">Topic 8</span>
+<h3 class="tw" style="font-size:14px;font-weight:600;margin:6px 0 12px">Halogen Displacement</h3>
+<div style="display:grid;gap:6px;margin-bottom:12px">
+<div style="display:flex;align-items:start;gap:8px;border-radius:12px;padding:12px;background:rgba(34,197,94,.03);border:1px solid rgba(34,197,94,.1)"><span class="iconify" style="color:#4ade80;font-size:14px;margin-top:1px" data-icon="lucide:check-circle-2"></span><div><p class="ts" style="font-size:12px;font-weight:500">Cl2 + 2KBr → 2KCl + Br2</p><p class="td" style="font-size:10px">Orange-brown — Possible</p></div></div>
+<div style="display:flex;align-items:start;gap:8px;border-radius:12px;padding:12px;background:rgba(239,68,68,.03);border:1px solid rgba(239,68,68,.1)"><span class="iconify" style="color:#f87171;font-size:14px;margin-top:1px" data-icon="lucide:x-circle"></span><div><p class="ts" style="font-size:12px;font-weight:500">I2 + 2KCl → No Reaction</p><p class="td" style="font-size:10px"><span style="color:#f87171">Impossible</span></p></div></div>
+</div>
+<div class="sn"><strong>"Senior halogen mhanto — tu baher ja!"</strong> <span class="td">F2 > Cl2 > Br2 > I2</span></div>
+</div>
+
+<div class="card qr-only" style="margin-bottom:12px">
+<h3 class="tw" style="font-size:14px;font-weight:600;margin-bottom:10px">Group 17 — Quick Facts</h3>
+<div style="font-size:12.5px;display:grid;gap:6px">
+<p class="ts"><span class="t1" style="font-weight:600">Oxidising:</span> F2 > Cl2 > Br2 > I2 (F2 strongest)</p>
+<p class="ts"><span class="t2" style="font-weight:600">EGE:</span> Cl > F > Br > I (Cl highest, not F!)</p>
+<p class="ts"><span class="t3" style="font-weight:600">HX Acidity:</span> HI > HBr > HCl > HF (HF weakest)</p>
+<p class="ts"><span style="font-weight:600;color:#4ade80">HF BP:</span> Highest due to H-bonding</p>
+<p class="ts"><span style="font-weight:600;color:#f87171">Displacement:</span> Higher oxidiser displaces lower</p>
+</div>
+</div>
+
+<div class="card" style="margin-bottom:12px">
+<h3 class="tw" style="font-size:13px;font-weight:600;margin-bottom:8px">Mnemonics (Memory Boost)</h3>
+<div class="mnc"><div class="mnc-d" style="background:var(--c2)"></div><div><p>"फ्लोरिन क्लासमध्ये ब्रेक घेऊन आईकडे गेला"</p><p class="en">(F, Cl, Br, I — group order)</p></div></div>
+<div class="mnc"><div class="mnc-d" style="background:var(--c2)"></div><div><p>"फ्लोरिन राजा पण क्लोरिन जिंकतो"</p><p class="en">(Cl > F in EGE — always asked!)</p></div></div>
+<div class="mnc"><div class="mnc-d" style="background:var(--c2)"></div><div><p>"बंध कमकुवत = आम्ल ताकदवान"</p><p class="en">(Strong H-F bond = weak acid)</p></div></div>
+<div class="mnc"><div class="mnc-d" style="background:var(--c3)"></div><div><p>"फक्त odd पार्टी — 1, 3, 5, 7"</p><p class="en">(Interhalogens: only AX, AX3, AX5, AX7 exist)</p></div></div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+<button type="button" class="qb qb2" data-quiz="t4"><span class="iconify" style="font-size:13px" data-icon="lucide:brain"></span>Topic 4</button>
+<button type="button" class="qb qb2" data-quiz="t5"><span class="iconify" style="font-size:13px" data-icon="lucide:brain"></span>Topic 5</button>
+<button type="button" class="qb qb2" data-quiz="t7"><span class="iconify" style="font-size:13px" data-icon="lucide:brain"></span>Topic 7</button>
+<button type="button" class="qb qb2" data-quiz="t8"><span class="iconify" style="font-size:13px" data-icon="lucide:brain"></span>Topic 8</button>
+</div>
+</section>
+
+<div class="dv"><span>Group 18 + Interhalogens</span></div>
+
+<section id="g18" style="margin-bottom:40px;scroll-margin-top:66px">
+<div style="display:flex;align-items:center;gap:9px;margin-bottom:18px">
+<div style="width:34px;height:34px;border-radius:9px;background:var(--c3bg);display:flex;align-items:center;justify-content:center"><span class="t3" style="font-size:14px;font-weight:700">18</span></div>
+<div><h2 class="tw" style="font-size:16px;font-weight:600">Noble Gases + Interhalogens</h2><p class="td" style="font-size:10px">ns2 np6 (He = 1s2)</p></div>
+<div style="margin-left:auto"><span class="pyq">PYQ x5</span></div>
+</div>
+
+<div class="card detail-only" style="margin-bottom:12px">
+<span class="ct">Topic 9</span>
+<h3 class="tw" style="font-size:14px;font-weight:600;margin:6px 0 12px">Group 18 — Key Concepts</h3>
+<div class="tw2"><table><thead><tr><th>Gas</th><th>No.</th><th>Key Fact</th><th>Use</th></tr></thead><tbody><tr><td class="ts" style="font-weight:500">He</td><td>2</td><td class="t3">Sun spectrum</td><td>Balloons, cryogenics</td></tr><tr><td class="ts" style="font-weight:500">Ne</td><td>10</td><td>Discharge glow</td><td>Neon signs</td></tr><tr><td class="ts" style="font-weight:500">Ar</td><td>18</td><td class="t3" style="font-weight:600">0.93% in air</td><td>Welding</td></tr><tr><td class="ts" style="font-weight:500">Xe</td><td>54</td><td class="t3" style="font-weight:600">Stable compounds</td><td>Xe lamps</td></tr><tr><td class="ts" style="font-weight:500">Rn</td><td>86</td><td style="color:#f87171">Radioactive</td><td>Cancer treatment</td></tr></tbody></table></div>
+<div class="sn"><strong>NCERT:</strong> Xe forms stable compounds with F and O (XeF2, XeF4, XeF6, XeO3, XeO4). Kr limited compounds. Rn uncertain due to radioactivity. He, Ne, Ar are essentially inert.</div>
+</div>
+
+<div class="card detail-only" style="margin-bottom:12px;border-color:var(--c3bd)">
+<span class="ct t3">Topic 10 — PYQ Favourite</span>
+<h3 class="tw" style="font-size:14px;font-weight:600;margin:6px 0 12px">Xenon Shapes</h3>
+<div class="tw2"><table><thead><tr><th>Compound</th><th>Hybrid.</th><th style="text-align:center">LP</th><th class="t3">Shape</th></tr></thead><tbody><tr><td class="ts" style="font-weight:500">XeF2</td><td>sp3d</td><td style="text-align:center" class="td">3</td><td class="t3" style="font-weight:600">Linear</td></tr><tr><td class="ts" style="font-weight:500">XeF4</td><td>sp3d2</td><td style="text-align:center" class="td">2</td><td class="t3" style="font-weight:600">Square Planar</td></tr><tr><td class="ts" style="font-weight:500">XeF6</td><td>sp3d3</td><td style="text-align:center" class="td">1</td><td class="t3" style="font-weight:600">Distorted Octahedral</td></tr><tr><td class="ts" style="font-weight:500">XeO3</td><td>sp3</td><td style="text-align:center" class="td">1</td><td class="t3" style="font-weight:600">Pyramidal</td></tr><tr><td class="ts" style="font-weight:500">XeOF4</td><td>sp3d2</td><td style="text-align:center" class="td">1</td><td class="t3" style="font-weight:600">Square Pyramidal</td></tr><tr><td class="ts" style="font-weight:500">XeO4</td><td>sp3</td><td style="text-align:center" class="td">0</td><td class="t3" style="font-weight:600">Tetrahedral</td></tr></tbody></table></div>
+<div class="mn"><p>"2 सरळ, 4 चौकोन, 6 गोंधळ — lone pairs hi reason"</p><p class="s">Xe OS: +2 (XeF2), +4 (XeF4), +6 (XeF6, XeO3), +8 (XeO4 rare). More LP = more distortion.</p></div>
+<div class="qrow"><span class="wt"><span class="iconify" style="font-size:11px" data-icon="lucide:x-circle"></span>XeF6 regular octahedral WRONG</span></div>
+</div>
+
+<div class="card detail-only" style="margin-bottom:12px">
+<span class="ct">Topic 11</span>
+<h3 class="tw" style="font-size:14px;font-weight:600;margin:6px 0 12px">Interhalogens</h3>
+<div class="tw2"><table><thead><tr><th>Type</th><th>Examples</th><th class="t3">Shape</th></tr></thead><tbody><tr><td class="ts" style="font-weight:500">AX</td><td>ClF, BrCl</td><td class="td">Linear</td></tr><tr><td class="ts" style="font-weight:500">AX3</td><td>ClF3, BrF3</td><td class="t3" style="font-weight:600">T-shaped</td></tr><tr><td class="ts" style="font-weight:500">AX5</td><td>BrF5, IF5</td><td class="t3" style="font-weight:600">Square Pyramidal</td></tr><tr><td class="ts" style="font-weight:500">AX7</td><td>IF7</td><td class="t3" style="font-weight:600">Pentagonal Bipyramidal</td></tr></tbody></table></div>
+<div class="sn"><strong>Rules:</strong> Central = larger halogen. Only odd-n types (AX, AX3, AX5, AX7). AX2, AX4, AX6 do NOT exist.</div>
+</div>
+
+<div class="card" style="margin-bottom:12px">
+<h3 class="tw" style="font-size:13px;font-weight:600;margin-bottom:8px">Mnemonics (Memory Boost)</h3>
+<div class="mnc"><div class="mnc-d" style="background:var(--c3)"></div><div><p>"हेलियम ने आकाशात क्रांती करून एक्स-रे गेला"</p><p class="en">(He, Ne, Ar, Kr, Xe, Rn — group order)</p></div></div>
+<div class="mnc"><div class="mnc-d" style="background:var(--c3)"></div><div><p>"झेनॉन बोर झाला — शेवटी रिअॅक्ट झाला"</p><p class="en">(Xe gets bored, reacts with F and O)</p></div></div>
+<div class="mnc"><div class="mnc-d" style="background:var(--c3)"></div><div><p>"2 सरळ, 4 चौकोन, 6 गोंधळ"</p><p class="en">(XeF2 linear, XeF4 sq.planar, XeF6 distorted oct)</p></div></div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px">
+<button type="button" class="qb qb3" data-quiz="t9"><span class="iconify" style="font-size:13px" data-icon="lucide:brain"></span>Topic 9</button>
+<button type="button" class="qb qb3" data-quiz="t10"><span class="iconify" style="font-size:13px" data-icon="lucide:brain"></span>Topic 10</button>
+<button type="button" class="qb qb3" data-quiz="t11"><span class="iconify" style="font-size:13px" data-icon="lucide:brain"></span>Topic 11</button>
+</div>
+</section>
+
+<div class="dv"><span style="color:#f87171">Exam Traps</span></div>
+
+<section style="margin-bottom:40px">
+<div style="display:flex;align-items:center;gap:9px;margin-bottom:16px"><div style="width:34px;height:34px;border-radius:9px;background:rgba(239,68,68,.08);display:flex;align-items:center;justify-content:center"><span class="iconify" style="color:#f87171;font-size:16px" data-icon="lucide:alert-triangle"></span></div><div><h2 class="tw" style="font-size:16px;font-weight:600">Final Exam Traps</h2><p class="td" style="font-size:10px">From real PYQs</p></div></div>
+<div style="display:grid;gap:6px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div class="ew"><p class="l">Wrong</p><p>Oxygen shows +6 OS</p></div><div class="ec"><p class="l">Correct</p><p>O max OS = +2 only in OF2</p></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div class="ew"><p class="l">Wrong</p><p>F has highest EGE</p></div><div class="ec"><p class="l">Correct</p><p>Cl > F > Br > I</p></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div class="ew"><p class="l">Wrong</p><p>Oxidising: Cl > F</p></div><div class="ec"><p class="l">Correct</p><p>F2 > Cl2 > Br2 > I2</p></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div class="ew"><p class="l">Wrong</p><p>Bond up = acid up</p></div><div class="ec"><p class="l">Correct</p><p>Weaker bond = stronger acid</p></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div class="ew"><p class="l">Wrong</p><p>Noble gases never react</p></div><div class="ec"><p class="l">Correct</p><p>Xe forms stable compounds</p></div></div>
+</div>
+<button type="button" class="qb qb-fire" data-quiz="trap" style="margin-top:12px"><span class="iconify" style="font-size:13px" data-icon="lucide:flame"></span>Trap Mode Quiz</button>
+</section>
+
+<div class="dv"><span>Bonus</span></div>
+<div class="card" style="margin-bottom:40px">
+<h3 class="tw" style="font-size:13px;font-weight:600;margin-bottom:8px">Universal Mnemonic</h3>
+<div class="mnc"><div class="mnc-d" style="background:linear-gradient(135deg,var(--c1),var(--c2),var(--c3))"></div><div><p>"मोठं झालं की कंट्रोल की कमी"</p><p class="en">(Bigger atomic size = weaker bond = stronger acid — applies to both Gr 16 & 17 hydrides)</p></div></div>
+</div>
+
+<div class="dv no-print"><span style="color:#60a5fa">Scorecard</span></div>
+<section style="margin-bottom:40px" class="no-print">
+<div class="card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:16px"><span class="iconify t1" style="font-size:18px" data-icon="lucide:trophy"></span><h2 class="tw" style="font-size:16px;font-weight:600">Your Performance</h2></div><div id="scoreBox"><div style="text-align:center;padding:20px 0"><span class="iconify td" style="font-size:32px" data-icon="lucide:bar-chart-3"></span><p class="td" style="font-size:12px;margin-top:8px">Complete quizzes to see scores</p></div></div></div>
+</section>
+
+<footer style="text-align:center;padding:28px 0" class="ftb">
+<p class="tw" style="font-size:16px;font-weight:600;margin-bottom:3px">YOU GOT THIS!</p>
+<p class="td" style="font-family:'Newsreader',serif;font-style:italic;font-size:13px">MHTCET 2026 — ALL THE BEST!</p>
+<p class="td" style="font-size:9px;margin-top:8px">Manish Dhangar · manish2stem@gmail.com</p>
+</footer>
+</div>
+
+<button type="button" class="bt no-print" id="bttBtn"><span class="iconify" style="font-size:14px" data-icon="lucide:arrow-up"></span></button>
+
+<div class="mbg no-print" id="qModal">
+<div class="mdl">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px" class="mhdr">
+<div><h3 class="tw" style="font-size:14px;font-weight:600" id="qTi"></h3><p class="td" style="font-size:10px" id="qSub"></p></div>
+<button type="button" id="modalClose" style="width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);border:none;cursor:pointer;color:#71717a;transition:all .15s"><span class="iconify" style="font-size:13px" data-icon="lucide:x"></span></button>
+</div>
+<div id="qBo" style="padding:18px"></div>
+</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+var QD = {};
+
+QD.t1 = {
+  n: "Group 16 Overview", c: "c1",
+  q: [
+    {q:"Maximum oxidation state of oxygen?", o:["+6","+4","+2","-2 only"], a:2, e:"No d-orbitals, max OS = +2 (only in OF2)."},
+    {q:"Which has highest EN in Group 16?", o:["S","Se","O","Te"], a:2, e:"O EN = 3.44, highest due to smallest size."},
+    {q:"Oxygen max covalency?", o:["4","6","2","8"], a:2, e:"No d-orbitals, max covalency = 2."},
+    {q:"O cannot show +4/+6 because:", o:["Low IE","No d-orbitals","High EA","Small size only"], a:1, e:"Without d-orbitals, cannot expand octet."},
+    {q:"O differs from others EXCEPT:", o:["Gas state","Max OS +6","No d-orbitals","Paramagnetic O2"], a:1, e:"O does NOT show +6. Others do due to d-orbitals."},
+    {q:"OS of O in OF2?", o:["+2","0","+1","-2"], a:0, e:"F more EN, each F gets -1, so O = +2."},
+    {q:"Which is NOT an O anomaly?", o:["Gas state","Magnetic nature","Has d-orbitals","Diatomic"], a:2, e:"O does NOT have d-orbitals."},
+    {q:"Smallest atomic radius in Group 16?", o:["S","O","Po","Se"], a:1, e:"O has smallest radius (lowest n)."},
+    {q:"Radioactive Group 16 element?", o:["Te","Po","Se","S"], a:1, e:"Polonium is radioactive."}
+  ]
+};
+
+QD.t2 = {
+  n: "Group 16 Hydrides", c: "c1",
+  q: [
+    {q:"Acidity order of Group 16 hydrides?", o:["H2O > H2S > H2Se > H2Te","H2Te > H2Se > H2S > H2O","H2S > H2Te > H2O","H2O > H2Te > H2S"], a:1, e:"Acidity increases down group."},
+    {q:"Highest BP among Group 16 hydrides?", o:["H2S","H2Se","H2Te","H2O"], a:3, e:"H2O has highest BP (100°C) due to H-bonding."},
+    {q:"Strongest E-H bond?", o:["H2Te","H2Se","H2S","H2O"], a:3, e:"H-O bond strongest (565 kJ/mol)."},
+    {q:"H2S is gas at RT because:", o:["Strong H-bond","Weak forces only","Ionic","Network"], a:1, e:"H2S lacks significant H-bonding."},
+    {q:"Which hydride used in qual analysis?", o:["H2O","H2Te","H2Se","H2S"], a:3, e:"H2S precipitates metal sulfides."},
+    {q:"H2Te acidity compared to H2S?", o:["Less acidic","Same","More acidic","Cannot compare"], a:2, e:"H2Te > H2S in acidity."},
+    {q:"H2S bond angle approx?", o:["104.5°","107°","92°","109.5°"], a:2, e:"H2S ~92° due to less hybridization."}
+  ]
+};
+
+QD.t3 = {
+  n: "O3 vs SO2", c: "c1",
+  q: [
+    {q:"O3 acts as:", o:["Reducing","Oxidising","Both","Neither"], a:1, e:"O3 decomposes to give nascent [O], strong oxidiser."},
+    {q:"SO2 acts as:", o:["Strong oxidiser","Reducing","Neither","Only bleach"], a:1, e:"SO2 is oxidised to SO3/H2SO4."},
+    {q:"SO2 bleaches by:", o:["Oxidation","Reduction","Hydrolysis","Decomposition"], a:1, e:"SO2 adds to double bonds (reduction)."},
+    {q:"SO2 bleaching is:", o:["Permanent","Temporary","Neither","Temp dependent"], a:1, e:"Temporary — reduced product re-oxidised by air."},
+    {q:"O3 layer in:", o:["Troposphere","Stratosphere","Mesosphere","Thermosphere"], a:1, e:"Stratosphere (~15-35 km) protects from UV."},
+    {q:"Cu + conc H2SO4 releases:", o:["O3","SO2","SO3","H2S"], a:1, e:"Cu + 2H2SO4 → CuSO4 + SO2 + 2H2O."},
+    {q:"O3 + KI gives:", o:["I2","KCl","No reaction","KIO3 only"], a:0, e:"O3 oxidises I⁻ to I2."}
+  ]
+};
+
+QD.t4 = {
+  n: "Group 17 Overview", c: "c2",
+  q: [
+    {q:"Colour of F2?", o:["Green-yellow","Pale yellow","Red-brown","Violet"], a:1, e:"F2 = pale yellow."},
+    {q:"Liquid halogen at RT?", o:["F2","Cl2","Br2","I2"], a:2, e:"Br2 is the only liquid halogen."},
+    {q:"State trend down Group 17?", o:["Gas-Gas-Liquid-Solid","Gas-Liquid-Solid","Gas-Liquid-Gas","All gas"], a:0, e:"F2, Cl2 gas; Br2 liquid; I2 solid."},
+    {q:"Highest EN halogen?", o:["Cl","Br","F","I"], a:2, e:"F EN = 4.0, highest of all elements."},
+    {q:"Atomic size order?", o:["F < Cl < Br < I","Cl < F < Br < I","F < Br < Cl < I","I < Br < Cl < F"], a:0, e:"Size increases down group."},
+    {q:"Most reactive halogen?", o:["Cl2","Br2","I2","F2"], a:3, e:"F2 is most reactive."},
+    {q:"I2 sublimes because:", o:["Covalent","Strong forces","Weak VDW","Ionic"], a:2, e:"Weak VDW forces easily overcome."},
+    {q:"Halogen for water purification?", o:["F2","Br2","I2","Cl2"], a:3, e:"Cl2 kills bacteria."},
+    {q:"F2 + H2O gives:", o:["HF only","HF + O2","HF + O3","HF + H2O2"], a:1, e:"2F2 + 2H2O → 4HF + O2."},
+    {q:"BDE order of halogens?", o:["F2 > Cl2 > Br2 > I2","Cl2 > Br2 > F2 > I2","I2 > Br2 > Cl2 > F2","Br2 > Cl2 > F2 > I2"], a:1, e:"Cl2 highest BDE, F2 lower due to 2p repulsion."}
+  ]
+};
+
+QD.t5 = {
+  n: "Electron Gain Enthalpy", c: "c2",
+  q: [
+    {q:"Correct EGE order (most -ve first)?", o:["F > Cl > Br > I","Cl > F > Br > I","Cl > Br > F > I","Br > Cl > F > I"], a:1, e:"Cl most -ve. F less -ve due to 2p repulsion."},
+    {q:"Why Cl > F in EGE?", o:["Cl smaller","F 2p repulsion","Cl lower EN","Cl more protons"], a:1, e:"Compact 2p = significant e- repulsion."},
+    {q:"EGE less -ve down group because:", o:["Size up, e- less attracted","Size down","EN up","Nuclear charge down"], a:0, e:"Increasing size = weaker attraction."},
+    {q:"Most -ve EGE element?", o:["F","Cl","Br","O"], a:1, e:"Cl ~ -349 kJ/mol."},
+    {q:"F EGE approx?", o:["-380 kJ","-328 kJ","-400 kJ","-300 kJ"], a:1, e:"F ~ -328 kJ/mol, less -ve than Cl."},
+    {q:"EGE exception in Group 17 because:", o:["Normally more -ve down","F anomaly","Both A and B","Neither"], a:2, e:"Should be more -ve down, but F breaks trend."},
+    {q:"O EGE less -ve than S because:", o:["O has d-orbitals","Small 2p repulsion","O less EN","S fewer e-"], a:1, e:"Same reason as F — compact 2p orbital."}
+  ]
+};
+
+QD.t7 = {
+  n: "Hydrogen Halides", c: "c2",
+  q: [
+    {q:"Correct acid strength order?", o:["HF > HCl > HBr > HI","HI > HBr > HCl > HF","HBr > HI > HCl > HF","HCl > HBr > HI > HF"], a:1, e:"HF << HCl < HBr < HI."},
+    {q:"Strongest H-X bond?", o:["HI","HBr","HCl","HF"], a:3, e:"H-F strongest (565 kJ/mol)."},
+    {q:"HF weak acid because:", o:["Strong H-F bond","Covalent only","Insoluble","F less EN"], a:0, e:"Strong bond makes H+ release difficult."},
+    {q:"HF has H-bonding because:", o:["F highly EN, small","F large","HF gas","F has d-orbitals"], a:0, e:"High EN + small size = strong H-bonds."},
+    {q:"BP order of HX?", o:["HI > HBr > HCl > HF","HF > HI > HBr > HCl","HCl > HBr > HI > HF","HF > HCl > HBr > HI"], a:1, e:"HF highest (H-bonding). Others follow normal trend."},
+    {q:"HX for glass etching?", o:["HCl","HBr","HI","HF"], a:3, e:"HF reacts with SiO2 in glass."},
+    {q:"HCl prepared by:", o:["NaCl + conc H2SO4","NaCl + HNO3","NaCl + dil H3PO4","KCl + dil H2SO4"], a:0, e:"NaCl + conc H2SO4 → NaHSO4 + HCl gas."},
+    {q:"HX NOT used in qual analysis?", o:["HCl","HF","HBr","HI"], a:1, e:"HF dissolves glass — cannot be used."},
+    {q:"Thermal stability order?", o:["HI > HBr > HCl > HF","HF > HCl > HBr > HI","HCl > HF > HBr > HI","HBr > HI > HCl > HF"], a:1, e:"Stronger bond = more stable. HF > HCl > HBr > HI."}
+  ]
+};
+
+QD.t8 = {
+  n: "Halogen Displacement", c: "c2",
+  q: [
+    {q:"Cl2 + 2KBr gives:", o:["2KCl + Br2","2KBr + Cl2","KBr + KCl","No reaction"], a:0, e:"Cl2 displaces Br2 from KBr."},
+    {q:"Br2 + 2KF gives:", o:["2KBr + F2","2KF + Br2","No reaction","KBr + F2"], a:2, e:"Br2 cannot displace F- (F2 is stronger oxidiser)."},
+    {q:"I2 + 2NaCl gives:", o:["2NaI + Cl2","NaCl + I2","No reaction","NaI + NaCl"], a:2, e:"I2 cannot displace Cl- (Cl2 is stronger oxidiser)."},
+    {q:"Orange-brown colour from?", o:["Cl2 + 2KBr","I2 + 2KBr","Br2 + 2KI","Cl2 + 2KF"], a:0, e:"Cl2 displaces Br2 (orange-brown)."},
+    {q:"Violet in organic layer from?", o:["Br2 + 2KI","Cl2 + 2KBr","F2 + 2KI","Cl2 + 2KCl"], a:0, e:"Br2 displaces I2 (violet in organic layer)."},
+    {q:"Displacement rule:", o:["Lower displaces higher","Higher ox displaces lower","Equal displaces","No rule"], a:1, e:"Higher oxidising power halogen displaces lower."}
+  ]
+};
+
+QD.t9 = {
+  n: "Group 18 — Key Concepts", c: "c3",
+  q: [
+    {q:"Noble gas config (except He)?", o:["ns²np⁶","ns²np⁵","ns²np⁴","ns¹"], a:0, e:"Complete octet ns²np⁶. He = 1s²."},
+    {q:"Discovered from Sun spectrum?", o:["Ne","Ar","He","Xe"], a:2, e:"He first detected in Sun (1868)."},
+    {q:"Most abundant noble gas in air?", o:["He","Ne","Ar","Xe"], a:2, e:"Ar ~ 0.93% of atmosphere."},
+    {q:"Forms most compounds?", o:["Kr","Xe","Rn","Ar"], a:1, e:"Xe forms the most stable compounds."},
+    {q:"Radioactive noble gas?", o:["Xe","Kr","Rn","Ar"], a:2, e:"Rn is radioactive."},
+    {q:"Ne used in:", o:["Welding","Neon signs","Balloons","Cryogenics"], a:1, e:"Ne emits reddish-orange light in discharge tubes."},
+    {q:"He in balloons instead of H2?", o:["Cheaper","Non-flammable","Heavier","H2 unavailable"], a:1, e:"He is non-flammable unlike H2."},
+    {q:"Lowest BP noble gas?", o:["Ne","He","Ar","Kr"], a:1, e:"He BP = 4.2 K (lowest of all elements)."},
+    {q:"Noble gases inert because:", o:["No electrons","Complete valence shell","Small size","High IE only"], a:1, e:"Complete valence shell = stable configuration."},
+    {q:"Cryogenic fluid?", o:["Ar","Ne","Xe","He"], a:3, e:"Liquid He used for superconducting magnets."}
+  ]
+};
+
+QD.t10 = {
+  n: "Xenon Shapes", c: "c3",
+  q: [
+    {q:"Shape of XeF2?", o:["Linear","Bent","T-shaped","Planar"], a:0, e:"sp³d, 3 LP = linear."},
+    {q:"Shape of XeF4?", o:["Tetrahedral","Square planar","See-saw","Trigonal bipy"], a:1, e:"sp³d², 2 LP = square planar."},
+    {q:"Shape of XeF6?", o:["Regular octahedral","Distorted octahedral","Pentagonal bipy","Trigonal prismatic"], a:1, e:"sp³d³, 1 LP = distorted octahedral."},
+    {q:"Xe hybridization in XeF4?", o:["sp³d","sp³d²","sp³d³","sp³"], a:1, e:"4 BP + 2 LP = 6 regions = sp³d²."},
+    {q:"Lone pairs on Xe in XeF2?", o:["1","2","3","0"], a:2, e:"8 e-, 2 in bonds, 6/2 = 3 LP."},
+    {q:"Shape of XeO3?", o:["Planar","Pyramidal","T-shaped","Linear"], a:1, e:"sp³, 1 LP = pyramidal."},
+    {q:"Shape of XeOF4?", o:["Square pyramidal","Trigonal bipy","See-saw","Octahedral"], a:0, e:"sp³d², 1 LP = square pyramidal (AX5E)."},
+    {q:"Max LP in which Xe compound?", o:["XeF6","XeF4","XeF2","XeO3"], a:2, e:"XeF2 has 3 LP — the maximum."},
+    {q:"Total e- pairs around Xe in XeF4?", o:["4","5","6","8"], a:2, e:"4 BP + 2 LP = 6 total."},
+    {q:"XeF6 NOT regular oct because:", o:["1 LP distorts","Xe small","F repels","Wrong hybrid"], a:0, e:"1 lone pair creates asymmetric charge distribution."},
+    {q:"Shape of XeO4?", o:["Square planar","Tetrahedral","Pyramidal","See-saw"], a:1, e:"sp³, 0 LP = tetrahedral."}
+  ]
+};
+
+QD.t11 = {
+  n: "Interhalogens", c: "c3",
+  q: [
+    {q:"Shape of ClF3?", o:["Planar","T-shaped","Linear","See-saw"], a:1, e:"sp³d, 2 LP = T-shaped."},
+    {q:"Shape of IF7?", o:["Octahedral","Pentagonal bipyramidal","Trigonal bipy","Square planar"], a:1, e:"sp³d³, 0 LP = pentagonal bipyramidal."},
+    {q:"Central atom in interhalogens?", o:["Smaller","Larger","Either","More EN"], a:1, e:"Larger (less EN) halogen is always central."},
+    {q:"Interhalogen type NOT existing?", o:["AX","AX2","AX3","AX5"], a:1, e:"Only AX, AX3, AX5, AX7 exist. AX2 does NOT."},
+    {q:"IF5 hybridization?", o:["sp³d","sp³d²","sp³","sp³d³"], a:1, e:"5 BP + 1 LP = 6 = sp³d²."},
+    {q:"LP count in BrF3?", o:["0","1","2","3"], a:2, e:"7 e-, 3 bonds → 4 e- = 2 LP."},
+    {q:"Powerful fluorinating agent?", o:["BrCl","IF5","ClF3","IBr"], a:2, e:"ClF3 is a powerful fluorinating agent."},
+    {q:"Interhalogens more reactive because:", o:["X-X bond weaker","Ionic","More electrons","Smaller"], a:0, e:"Size/EN mismatch = weaker X-X bond."},
+    {q:"Cl hybridization in ClF3?", o:["sp³d","sp³d²","sp²","sp³"], a:0, e:"3 BP + 2 LP = 5 regions = sp³d."},
+    {q:"Interhalogens: only odd-n types?", o:["Yes: AX, AX3, AX5, AX7","No: all types","Only even-n","Depends"], a:0, e:"Only odd-n types (AX, AX3, AX5, AX7) exist."}
+  ]
+};
+
+QD.trap = {
+  n: "Trap Mode", c: "c2",
+  q: [
+    {q:"Which has HIGHEST electron gain enthalpy?", o:["Fluorine","Chlorine","Bromine","Iodine"], a:1, e:"Cl > F! F has 2p repulsion. Most students pick F — wrong!"},
+    {q:"Which is the STRONGEST acid?", o:["HF","HCl","HBr","HI"], a:3, e:"HI > HBr > HCl > HF. HF is weakest, not strongest!"},
+    {q:"Which has HIGHEST boiling point?", o:["HI","HBr","HCl","HF"], a:3, e:"HF has highest BP due to H-bonding, not VDW forces."},
+    {q:"Maximum oxidation state of oxygen?", o:["+6","+4","+2","-2 only"], a:2, e:"+2 only in OF2. No d-orbitals = no +4/+6."},
+    {q:"Shape of XeF6?", o:["Regular octahedral","Square planar","Distorted octahedral","Pentagonal bipy"], a:2, e:"Distorted! 1 lone pair = asymmetric charge distribution."},
+    {q:"Correct oxidising power order?", o:["Cl2 > F2 > Br2 > I2","F2 > Cl2 > Br2 > I2","I2 > Br2 > Cl2 > F2","Br2 > Cl2 > F2 > I2"], a:1, e:"F2 > Cl2! Not the other way around!"},
+    {q:"Interhalogen type that does NOT exist?", o:["AX","AX2","AX3","AX5"], a:1, e:"AX2 does not exist. Only odd-n types."},
+    {q:"Bond strength vs acidity relation:", o:["Stronger bond = stronger acid","Weaker bond = stronger acid","No relation","Same trend always"], a:1, e:"Weaker bond = stronger acid. This is a universal rule!"}
+  ]
+};
+
+
+// ===== STATE =====
+var qz = { id: null, idx: 0, sc: 0, lk: false, total: 0, isRetry: false, srcId: null };
+var timerInt = null;
+var timeLeft = 30;
+var scores = {};
+var wrongMap = {};
+
+try { scores = JSON.parse(localStorage.getItem("mht_sc") || "{}"); } catch (e) { scores = {}; }
+try { wrongMap = JSON.parse(localStorage.getItem("mht_wr") || "{}"); } catch (e) { wrongMap = {}; }
+
+function saveSc() {
+  try { localStorage.setItem("mht_sc", JSON.stringify(scores)); } catch (e) { /* silent */ }
+}
+function saveWr() {
+  try { localStorage.setItem("mht_wr", JSON.stringify(wrongMap)); } catch (e) { /* silent */ }
+}
+
+
+// ===== TOAST =====
+function toast(msg) {
+  var existing = document.querySelector(".toast");
+  if (existing) existing.parentNode.removeChild(existing);
+  var t = document.createElement("div");
+  t.className = "toast";
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function () {
+    if (t.parentNode) {
+      t.style.opacity = "0";
+      t.style.transition = "opacity .3s";
+    }
+  }, 1800);
+  setTimeout(function () {
+    if (t.parentNode) t.parentNode.removeChild(t);
+  }, 2200);
+}
+
+
+// ===== INTRO =====
+function dismissIntro() {
+  var cin = document.getElementById("cin");
+  if (!cin || cin.classList.contains("out")) return;
+  cin.classList.add("out");
+  setTimeout(function () {
+    cin.style.display = "none";
+    var mc = document.getElementById("mainContent");
+    if (mc) mc.style.opacity = "1";
+    var nav = document.getElementById("mainNav");
+    if (nav) nav.classList.add("vis");
+  }, 600);
+}
+
+var cinEl = document.getElementById("cin");
+var cinFoot = document.getElementById("cinFoot");
+
+if (cinFoot) {
+  cinFoot.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    dismissIntro();
+  });
+}
+if (cinEl) {
+  cinEl.addEventListener("click", function (e) {
+    if (e.target === cinEl || e.target.classList.contains("cin-ptc")) {
+      dismissIntro();
+    }
+  });
+}
+
+// Fallback auto-dismiss
+setTimeout(function () {
+  dismissIntro();
+}, 6800);
+
+// Particles
+var ptc = document.getElementById("ptc");
+if (ptc) {
+  for (var pi = 0; pi < 20; pi++) {
+    var dot = document.createElement("div");
+    dot.className = "cin-dot";
+    dot.style.left = Math.random() * 100 + "%";
+    dot.style.animationDuration = (4 + Math.random() * 6) + "s";
+    dot.style.animationDelay = (Math.random() * 5) + "s";
+    dot.style.background = Math.random() > 0.5 ? "#f59e0b" : "#ec4899";
+    ptc.appendChild(dot);
+  }
+}
+
+
+// ===== THEME TOGGLES =====
+var bD = document.getElementById("bD");
+var bL = document.getElementById("bL");
+if (bD) {
+  bD.addEventListener("click", function () {
+    document.body.classList.remove("lt");
+    bD.classList.add("on");
+    if (bL) bL.classList.remove("on");
+  });
+  bD.classList.add("on");
+}
+if (bL) {
+  bL.addEventListener("click", function () {
+    document.body.classList.add("lt");
+    bL.classList.add("on");
+    if (bD) bD.classList.remove("on");
+  });
+}
+
+// ===== PINK THEME =====
+var bN = document.getElementById("bN");
+var bP = document.getElementById("bP");
+if (bN) {
+  bN.addEventListener("click", function () {
+    document.body.classList.remove("pk");
+    bN.classList.add("on");
+    if (bP) bP.classList.remove("on");
+  });
+  bN.classList.add("on");
+}
+if (bP) {
+  bP.addEventListener("click", function () {
+    document.body.classList.add("pk");
+    bP.classList.add("on");
+    if (bN) bN.classList.remove("on");
+  });
+}
+
+
+// ===== QR MODE =====
+var qrBtn = document.getElementById("qrToggle");
+if (qrBtn) {
+  qrBtn.addEventListener("click", function () {
+    document.body.classList.toggle("qr-mode");
+    qrBtn.classList.toggle("on");
+  });
+}
+
+
+// ===== PROGRESS BAR =====
+var pf = document.getElementById("pf");
+if (pf) {
+  window.addEventListener("scroll", function () {
+    var st = window.scrollY || 0;
+    var sh = document.documentElement.scrollHeight - window.innerHeight;
+    pf.style.width = (sh > 0 ? (st / sh) * 100 : 0) + "%";
+  }, { passive: true });
+}
+
+
+// ===== BACK TO TOP =====
+var btt = document.getElementById("bttBtn");
+if (btt) {
+  window.addEventListener("scroll", function () {
+    if ((window.scrollY || 0) > 400) btt.classList.add("v");
+    else btt.classList.remove("v");
+  }, { passive: true });
+  btt.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+
+// ===== QUIZ MODAL =====
+var modal = document.getElementById("qModal");
+var mClose = document.getElementById("modalClose");
+var qTiEl = document.getElementById("qTi");
+var qSubEl = document.getElementById("qSub");
+var qBoEl = document.getElementById("qBo");
+
+function openQ(id) {
+  var d = QD[id];
+  if (!d || !d.q || !d.q.length) {
+    toast("Quiz not available");
+    return;
+  }
+  qz = {
+    id: id,
+    idx: 0,
+    sc: 0,
+    lk: false,
+    total: d.q.length,
+    isRetry: !!d.isRetry,
+    srcId: d.srcId || id
+  };
+  if (qTiEl) qTiEl.textContent = d.n;
+  if (qSubEl) qSubEl.textContent = d.q.length + " Questions" + (d.isRetry ? " (Retry Wrong)" : "");
+  if (modal) modal.classList.add("show");
+  renderQ();
+}
+
+function closeQ() {
+  clearInterval(timerInt);
+  timerInt = null;
+  if (modal) modal.classList.remove("show");
+}
+
+if (mClose) mClose.addEventListener("click", closeQ);
+if (modal) {
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) closeQ();
+  });
+}
+
+// Bind all quiz buttons
+document.querySelectorAll("[data-quiz]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var quizId = this.getAttribute("data-quiz");
+    if (quizId) openQ(quizId);
+  });
+});
+
+
+// ===== QUIZ RENDERING =====
+var LABELS = ["A", "B", "C", "D"];
+
+function renderQ() {
+  var d = QD[qz.id];
+  if (!d || qz.idx >= d.q.length) {
+    showRes();
+    return;
+  }
+  var qq = d.q[qz.idx];
+  if (!qq) { showRes(); return; }
+
+  var h = '<div style="margin-bottom:8px;display:flex;align-items:center;justify-content:space-between">';
+  h += '<span class="td" style="font-size:11px">Q' + (qz.idx + 1) + ' / ' + qz.total + '</span>';
+  h += '<span id="timerD" style="font-size:12px;font-weight:600;color:#22c55e">30s</span>';
+  h += '</div>';
+  h += '<p class="tw" style="font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6">' + qq.q + '</p>';
+  h += '<div id="optsWrap" style="display:grid;gap:8px">';
+  for (var i = 0; i < qq.o.length; i++) {
+    h += '<div class="qo" data-oi="' + i + '">';
+    h += '<div class="ql">' + (LABELS[i] || String(i + 1)) + '</div>';
+    h += '<span>' + qq.o[i] + '</span>';
+    h += '</div>';
+  }
+  h += '</div>';
+  h += '<div id="expBox" style="margin-top:14px;display:none"></div>';
+  h += '<div id="nxtWrap" style="margin-top:16px;display:none;text-align:right">';
+  h += '<button type="button" class="b1" id="nxtBtn">Next →</button>';
+  h += '</div>';
+
+  if (qBoEl) qBoEl.innerHTML = h;
+
+  // Bind option clicks
+  var optsWrap = document.getElementById("optsWrap");
+  if (optsWrap) {
+    var optEls = optsWrap.querySelectorAll(".qo");
+    for (var j = 0; j < optEls.length; j++) {
+      (function (el) {
+        el.addEventListener("click", function () {
+          var oi = parseInt(this.getAttribute("data-oi"), 10);
+          if (!isNaN(oi)) pickAnswer(oi);
+        });
+      })(optEls[j]);
+    }
+  }
+
+  // Bind next button
+  var nxtBtn = document.getElementById("nxtBtn");
+  if (nxtBtn) {
+    nxtBtn.addEventListener("click", function () { nxtQ(); });
+  }
+
+  // Start timer
+  timeLeft = 30;
+  clearInterval(timerInt);
+  updateTimerDisplay();
+  timerInt = setInterval(function () {
+    timeLeft--;
+    updateTimerDisplay();
+    if (timeLeft <= 0) {
+      clearInterval(timerInt);
+      timerInt = null;
+      pickAnswer(-1);
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  var el = document.getElementById("timerD");
+  if (!el) return;
+  el.textContent = timeLeft + "s";
+  if (timeLeft <= 5) el.style.color = "#ef4444";
+  else if (timeLeft <= 10) el.style.color = "#f59e0b";
+  else el.style.color = "#22c55e";
+}
+
+
+// ===== ANSWER SELECTION =====
+function pickAnswer(picked) {
+  if (qz.lk) return;
+  qz.lk = true;
+  clearInterval(timerInt);
+  timerInt = null;
+
+  var d = QD[qz.id];
+  if (!d) return;
+  var qq = d.q[qz.idx];
+  if (!qq) { nxtQ(); return; }
+
+  var isTimeout = (picked === -1);
+  var ok = (!isTimeout && picked === qq.a);
+
+  if (ok) {
+    qz.sc += 4;
+  } else if (!isTimeout) {
+    qz.sc -= 1;
+  }
+
+  // Highlight options
+  var optsWrap = document.getElementById("optsWrap");
+  if (optsWrap) {
+    var allOpts = optsWrap.querySelectorAll(".qo");
+    for (var i = 0; i < allOpts.length; i++) {
+      var idx = parseInt(allOpts[i].getAttribute("data-oi"), 10);
+      allOpts[i].classList.add("lk");
+      if (idx === qq.a) {
+        allOpts[i].classList.add("ok");
+      }
+      if (idx === picked && !ok) {
+        allOpts[i].classList.add("no");
+      }
+    }
+  }
+
+  // Track wrong answers (only for non-retry quizzes)
+  if (!qz.isRetry) {
+    var realId = qz.srcId || qz.id;
+    if (!wrongMap[realId]) wrongMap[realId] = [];
+    if (!ok && !isTimeout) {
+      if (wrongMap[realId].indexOf(qz.idx) === -1) {
+        wrongMap[realId].push(qz.idx);
+      }
+    }
+    if (ok) {
+      var wi = wrongMap[realId].indexOf(qz.idx);
+      if (wi !== -1) wrongMap[realId].splice(wi, 1);
+    }
+    if (wrongMap[realId].length === 0) delete wrongMap[realId];
+    saveWr();
+  }
+
+  // Show explanation
+  var expBox = document.getElementById("expBox");
+  if (expBox) {
+    expBox.style.display = "block";
+    var isCorrect = ok;
+    var bgColor = isCorrect ? "rgba(34,197,94,.06)" : "rgba(239,68,68,.06)";
+    var borderColor = isCorrect ? "rgba(34,197,94,.1)" : "rgba(239,68,68,.1)";
+    var labelColor = isCorrect ? "#4ade80" : "#f87171";
+    var labelText = isCorrect ? "✓ Correct! +4" : (isTimeout ? "⏱ Time's up! 0" : "✗ Wrong! -1");
+
+    var eh = '<div style="padding:10px 14px;border-radius:10px;background:' + bgColor + ';border:1px solid ' + borderColor + ';margin-bottom:6px">';
+    eh += '<p style="font-size:12px;color:' + labelColor + ';font-weight:600">' + labelText + '</p></div>';
+    eh += '<div style="padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04)">';
+    eh += '<p class="ts" style="font-size:12px;line-height:1.6">' + qq.e + '</p></div>';
+    expBox.innerHTML = eh;
+  }
+
+  // Show next button
+  var nxtWrap = document.getElementById("nxtWrap");
+  if (nxtWrap) nxtWrap.style.display = "block";
+  var nxtBtn = document.getElementById("nxtBtn");
+  if (nxtBtn) {
+    nxtBtn.textContent = (qz.idx >= qz.total - 1) ? "See Results →" : "Next →";
+  }
+}
+
+
+// ===== NEXT QUESTION =====
+function nxtQ() {
+  qz.idx++;
+  qz.lk = false;
+  if (qz.idx >= qz.total) {
+    showRes();
+    return;
+  }
+  renderQ();
+}
+
+
+// ===== SHOW RESULTS =====
+function showRes() {
+  clearInterval(timerInt);
+  timerInt = null;
+
+  var maxPossible = qz.total * 4;
+  var pct = maxPossible > 0 ? Math.round((qz.sc / maxPossible) * 100) : 0;
+  if (pct < 0) pct = 0;
+  var clr = pct >= 80 ? "#22c55e" : pct >= 50 ? "#f59e0b" : "#ef4444";
+  var msg = pct >= 80 ? "Excellent! 🎉" : pct >= 50 ? "Good effort! 💪" : "Keep practicing! 📚";
+
+  // Save score (non-retry only)
+  if (!qz.isRetry) {
+    var sid = qz.srcId || qz.id;
+    scores[sid] = { s: qz.sc, t: maxPossible, d: new Date().toLocaleDateString() };
+    saveSc();
+  }
+
+  var circumference = 2 * Math.PI * 38;
+  var offset = circumference - (circumference * pct / 100);
+
+  var h = '<div style="text-align:center;padding:16px 0">';
+  h += '<div class="score-circle">';
+  h += '<svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="38" stroke="rgba(255,255,255,.06)" />';
+  h += '<circle cx="40" cy="40" r="38" stroke="' + clr + '" stroke-dasharray="' + circumference + '" stroke-dashoffset="' + offset + '" stroke-linecap="round" style="transition:stroke-dashoffset .6s ease" /></svg>';
+  h += '<span class="tw" style="font-size:24px;font-weight:700">' + pct + '%</span>';
+  h += '</div>';
+  h += '<p class="tw" style="font-size:16px;font-weight:600;margin-bottom:4px">' + msg + '</p>';
+  h += '<p class="td" style="font-size:13px">Score: <span class="tw" style="font-weight:600">' + qz.sc + '</span> / ' + maxPossible + '</p>';
+  h += '<p class="td" style="font-size:11px;margin-top:2px">(+4 correct, -1 wrong)</p>';
+  h += '<div style="margin-top:20px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">';
+  h += '<button type="button" class="b2" id="retryAllBtn">Retry All</button>';
+  h += '<button type="button" class="b2" id="retryWrongBtn">Retry Wrong</button>';
+  h += '<button type="button" class="b1" id="closeResBtn">Close</button>';
+  h += '</div></div>';
+
+  if (qBoEl) qBoEl.innerHTML = h;
+
+  // Bind result buttons
+  var closeResBtn = document.getElementById("closeResBtn");
+  if (closeResBtn) closeResBtn.addEventListener("click", closeQ);
+
+  var retryAllBtn = document.getElementById("retryAllBtn");
+  if (retryAllBtn) retryAllBtn.addEventListener("click", function () {
+    var retryId = qz.srcId || qz.id;
+    closeQ();
+    setTimeout(function () { openQ(retryId); }, 250);
+  });
+
+  var retryWrongBtn = document.getElementById("retryWrongBtn");
+  if (retryWrongBtn) retryWrongBtn.addEventListener("click", function () {
+    var rid = qz.srcId || qz.id;
+    var wr = wrongMap[rid];
+    if (!wr || !wr.length) {
+      toast("No wrong answers to retry!");
+      return;
+    }
+    var src = QD[rid];
+    if (!src || !src.q) {
+      toast("Source quiz not found");
+      return;
+    }
+    var filtered = [];
+    for (var i = 0; i < wr.length; i++) {
+      if (src.q[wr[i]]) filtered.push(src.q[wr[i]]);
+    }
+    if (!filtered.length) {
+      toast("No questions available");
+      return;
+    }
+    var rId = "rw_" + rid + "_" + Date.now();
+    QD[rId] = { n: src.n + " (Wrong Only)", c: src.c, q: filtered, isRetry: true, srcId: rid };
+    closeQ();
+    setTimeout(function () { openQ(rId); }, 250);
+  });
+
+  renderSC();
+}
+
+
+// ===== SCORECARD =====
+function renderSC() {
+  var el = document.getElementById("scoreBox");
+  if (!el) return;
+
+  var keys = [];
+  for (var k in QD) {
+    if (QD.hasOwnProperty(k) && !QD[k].isRetry && QD[k].q && QD[k].q.length > 0) {
+      keys.push(k);
+    }
+  }
+
+  var done = [];
+  for (var j = 0; j < keys.length; j++) {
+    if (scores[keys[j]]) done.push(keys[j]);
+  }
+
+  if (!done.length) {
+    el.innerHTML = '<div style="text-align:center;padding:20px 0"><span class="iconify td" style="font-size:32px" data-icon="lucide:bar-chart-3"></span><p class="td" style="font-size:12px;margin-top:8px">Complete quizzes to see scores</p></div>';
+    return;
+  }
+
+  var h = '<div style="display:grid;gap:6px">';
+  for (var n = 0; n < done.length; n++) {
+    var key = done[n];
+    var info = QD[key];
+    var sv = scores[key];
+    if (!info || !sv) continue;
+
+    var sp = sv.t > 0 ? Math.round((sv.s / sv.t) * 100) : 0;
+    if (sp < 0) sp = 0;
+    var clr = sp >= 80 ? "#22c55e" : sp >= 50 ? "#f59e0b" : "#ef4444";
+
+    h += '<div class="si">';
+    h += '<div><p class="tw" style="font-size:12px;font-weight:500">' + info.n + '</p>';
+    h += '<p class="td" style="font-size:10px">' + sv.s + '/' + sv.t + ' marks · ' + (sv.d || "") + '</p></div>';
+    h += '<div style="display:flex;align-items:center;gap:8px">';
+    h += '<span class="tw" style="font-size:14px;font-weight:700;color:' + clr + '">' + sp + '%</span>';
+    h += '<div style="width:50px;height:6px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden">';
+    h += '<div style="height:100%;width:' + sp + '%;background:' + clr + ';border-radius:99px;transition:width .3s"></div>';
+    h += '</div></div></div>';
+  }
+  h += '</div>';
+  el.innerHTML = h;
+}
+
+// Initial scorecard render
+renderSC();
+
+}); // end DOMContentLoaded
+</script>
+</body>
+</html>
